@@ -1,5 +1,6 @@
 package ts3.server.daos;
 
+import javax.swing.JOptionPane;
 import ts3.server.entidades.Credenciales;
 import ts3.server.entidades.Mensaje;
 import ts3.server.entidades.Usuario;
@@ -27,7 +28,28 @@ public class UsuarioDAO implements IUsuarioDAO{
 
     @Override
     public boolean existeUsuario(Usuario usuario) {
-        return false;
+        boolean existe=false;
+        
+        if(!lUsuarios.estaVacia()){
+            
+            if(lUsuarios.datoExistente(usuario)==!existe){
+                JOptionPane.showMessageDialog(null, "El usuario ya existe");
+                existe=true;
+            }   
+        }
+        return existe;
+    }
+    
+    public void loginUser(Usuario loginuser){
+       
+        if(lUsuarios.datoExistente(loginuser)==true){
+           loginuser.getLoginUsuario();
+           
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario no existe");
+        }
+        
+    
     }
 
     @Override

@@ -18,6 +18,21 @@ public class ListaLEG<E extends Usuario> {
     public int getTalla() {
         return talla;
     }
+    public boolean estaVacia(){
+        return primero==null;
+    }
+    
+    public boolean datoExistente(E x){
+        boolean existe=false;
+        NodoLEG<E> aux=primero;
+        while(aux!=null && !existe){
+            if(aux.getDato().equals(x)){
+            existe=true;
+        }
+        aux=aux.getSiguiente();
+    }
+        return existe;
+    }
     
     //reglas de negocio
     // operaciones basicas 
