@@ -70,7 +70,6 @@ public class win_crearcuenta extends javax.swing.JFrame {
 
         txt_nombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_nombre.setForeground(new java.awt.Color(204, 204, 204));
-        txt_nombre.setText("Nombre y Apellido");
         txt_nombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_nombreMouseClicked(evt);
@@ -82,10 +81,14 @@ public class win_crearcuenta extends javax.swing.JFrame {
 
         txt_crearusuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_crearusuario.setForeground(new java.awt.Color(204, 204, 204));
-        txt_crearusuario.setText("Nombre de Usuario");
         txt_crearusuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_crearusuarioMouseClicked(evt);
+            }
+        });
+        txt_crearusuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_crearusuarioActionPerformed(evt);
             }
         });
 
@@ -98,9 +101,15 @@ public class win_crearcuenta extends javax.swing.JFrame {
         txt_crearclave.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_crearclave.setText("contraseña");
         txt_crearclave.setToolTipText("");
+        txt_crearclave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_crearclaveMouseClicked(evt);
+            }
+        });
 
         btn_crear.setBackground(new java.awt.Color(51, 102, 255));
         btn_crear.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btn_crear.setForeground(new java.awt.Color(255, 255, 255));
         btn_crear.setText("Crear Cuenta");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -339,7 +348,7 @@ public class win_crearcuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nombreMouseClicked
 
     private void txt_crearusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_crearusuarioMouseClicked
-        // TODO add your handling code here:
+        txt_crearusuario.setText("");
     }//GEN-LAST:event_txt_crearusuarioMouseClicked
 
     private void btn_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarActionPerformed
@@ -347,6 +356,14 @@ public class win_crearcuenta extends javax.swing.JFrame {
         lg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_iniciarActionPerformed
+
+    private void txt_crearusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_crearusuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_crearusuarioActionPerformed
+
+    private void txt_crearclaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_crearclaveMouseClicked
+        txt_crearclave.setText("");
+    }//GEN-LAST:event_txt_crearclaveMouseClicked
 
     /**
      * @param args the command line arguments

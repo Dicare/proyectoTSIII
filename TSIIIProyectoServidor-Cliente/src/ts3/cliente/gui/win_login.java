@@ -55,7 +55,7 @@ public class win_login extends javax.swing.JFrame {
         txt_contraseña = new javax.swing.JPasswordField();
         btn_siguiente = new javax.swing.JButton();
         btnCrearCuenta = new javax.swing.JButton();
-        btnCrearCuenta1 = new javax.swing.JButton();
+        btn_salir = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -139,6 +139,11 @@ public class win_login extends javax.swing.JFrame {
         btn_siguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/siguiente.PNG"))); // NOI18N
         btn_siguiente.setBorderPainted(false);
         btn_siguiente.setContentAreaFilled(false);
+        btn_siguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_siguienteActionPerformed(evt);
+            }
+        });
 
         btnCrearCuenta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnCrearCuenta.setForeground(new java.awt.Color(102, 102, 255));
@@ -151,14 +156,14 @@ public class win_login extends javax.swing.JFrame {
             }
         });
 
-        btnCrearCuenta1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnCrearCuenta1.setForeground(new java.awt.Color(102, 102, 255));
-        btnCrearCuenta1.setText("Salir");
-        btnCrearCuenta1.setBorderPainted(false);
-        btnCrearCuenta1.setContentAreaFilled(false);
-        btnCrearCuenta1.addActionListener(new java.awt.event.ActionListener() {
+        btn_salir.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btn_salir.setForeground(new java.awt.Color(102, 102, 255));
+        btn_salir.setText("Salir");
+        btn_salir.setBorderPainted(false);
+        btn_salir.setContentAreaFilled(false);
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearCuenta1ActionPerformed(evt);
+                btn_salirActionPerformed(evt);
             }
         });
 
@@ -208,7 +213,7 @@ public class win_login extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnCrearCuenta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCrearCuenta1)
+                        .addComponent(btn_salir)
                         .addGap(66, 66, 66))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -244,7 +249,7 @@ public class win_login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearCuenta)
-                    .addComponent(btnCrearCuenta1))
+                    .addComponent(btn_salir))
                 .addGap(106, 106, 106))
         );
 
@@ -276,9 +281,15 @@ public class win_login extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCrearCuentaActionPerformed
 
-    private void btnCrearCuenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCuenta1ActionPerformed
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btnCrearCuenta1ActionPerformed
+    }//GEN-LAST:event_btn_salirActionPerformed
+
+    private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
+        win_principal pr= new win_principal();
+        pr.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_siguienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,7 +329,7 @@ public class win_login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearCuenta;
-    private javax.swing.JButton btnCrearCuenta1;
+    private javax.swing.JButton btn_salir;
     private javax.swing.JButton btn_siguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
