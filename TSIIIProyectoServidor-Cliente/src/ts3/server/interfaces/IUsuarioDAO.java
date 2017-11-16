@@ -9,6 +9,6 @@ import ts3.server.entidades.Usuario;
 public interface IUsuarioDAO {
     void agregarNuevoUsuario(Credenciales nuevoUsuario);
     void enviarMensaje(Mensaje Mensaje);
-    boolean existeUsuario(Usuario usuario);
+    boolean existeUsuario(String usuario);
     Mensaje leerPrimerMensajeBuzon(Credenciales credencialesUsuario);
 }

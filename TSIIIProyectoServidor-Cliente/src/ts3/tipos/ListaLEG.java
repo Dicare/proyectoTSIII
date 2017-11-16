@@ -29,13 +29,15 @@ public class ListaLEG<E extends Usuario>
         return primero == null;
     }
 
-    public boolean datoExistente(E x)
+    public boolean existeUsuario(String userName)
     {
         boolean existe = false;
         NodoLEG<E> aux = primero;
+        
         while (aux != null && !existe)
         {
-            if (aux.getDato().equals(x))
+            if (aux.getDato().getLoginUsuario().getUserName()
+                    .compareTo(userName) == 0)
             {
                 existe = true;
             }

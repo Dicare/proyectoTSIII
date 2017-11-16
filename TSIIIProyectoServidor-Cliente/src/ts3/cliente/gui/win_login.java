@@ -304,7 +304,7 @@ public class win_login extends javax.swing.JFrame
                                           .loginUser(loginInfo);
         if (loginCorrecto)
         {
-            Constantes.USUARIO_lOGEADO = new Usuario(loginInfo);
+            Constantes.USUARIO_lOGEADO = loginInfo;
             
             win_principal pr = new win_principal();
             pr.setVisible(true);

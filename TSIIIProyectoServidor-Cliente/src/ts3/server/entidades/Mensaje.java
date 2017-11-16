@@ -8,10 +8,10 @@ public class Mensaje {
 
     private Date fecha;
     private String mensaje;
-    private Usuario usuarioOrigen;
-    private ArrayList<Usuario> lUsuariosDestino;
+    private String usuarioOrigen;
+    private ArrayList<String> lUsuariosDestino;
 
-    public Mensaje(Date fecha, String mensaje, Usuario usuarioOrigen, ArrayList<Usuario> usuariosDestino) {
+    public Mensaje(Date fecha, String mensaje, String usuarioOrigen, ArrayList<String> usuariosDestino) {
         this.fecha = fecha;
         this.mensaje = mensaje;
         this.usuarioOrigen = usuarioOrigen;
@@ -23,19 +23,19 @@ public class Mensaje {
     
     // <editor-fold defaultstate="collapsed" desc="Getters & Setters">
 
-    public Usuario getUsuarioOrigen() {
+    public String getUsuarioOrigen() {
         return usuarioOrigen;
     }
 
-    public void setUsuarioOrigen(Usuario usuarioOrigen) {
+    public void setUsuarioOrigen(String usuarioOrigen) {
         this.usuarioOrigen = usuarioOrigen;
     }
 
-    public ArrayList<Usuario> getlUsuariosDestino() {
+    public ArrayList<String> getlUsuariosDestino() {
         return lUsuariosDestino;
     }
 
-    public void setlUsuariosDestino(ArrayList<Usuario> lUsuariosDestino) {
+    public void setlUsuariosDestino(ArrayList<String> lUsuariosDestino) {
         this.lUsuariosDestino = lUsuariosDestino;
     }
     

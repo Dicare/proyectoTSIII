@@ -28,12 +28,10 @@ public class UsuarioDAO implements IUsuarioDAO
     
     @Override
     public void agregarNuevoUsuario(Credenciales loginUsuario)
-    {
-
-        Usuario nuevoUsuario = new Usuario(loginUsuario);
-        if (!existeUsuario(nuevoUsuario))
-        {
-            lUsuarios.insertarOrdenado(nuevoUsuario);
+    {       
+        if (!existeUsuario(loginUsuario.getUserName()))
+        {            
+            lUsuarios.insertarOrdenado(new Usuario(loginUsuario));
         } else
         {
             JOptionPane.showMessageDialog(null, "Nombre de Usuario ya existe");
@@ -44,13 +42,13 @@ public class UsuarioDAO implements IUsuarioDAO
     @Override
     public void enviarMensaje(Mensaje Mensaje)
     {
-        for (Usuario usuarioDestino : Mensaje.getlUsuariosDestino())
+        for (String usuarioDestino : Mensaje.getlUsuariosDestino())
         {
             NodoLEG<Usuario> aux = lUsuarios.getPrimero();
             while (aux != null)
             {
                 if (aux.getDato().getLoginUsuario().getUserName()
-                        .equalsIgnoreCase(usuarioDestino.getLoginUsuario().getUserName()))
+                        .equalsIgnoreCase(usuarioDestino))
                 {
                     aux.getDato().agregarNuevoMensaje(Mensaje);                    
                 }
@@ -61,20 +59,9 @@ public class UsuarioDAO implements IUsuarioDAO
     }
 
     @Override
-    public boolean existeUsuario(Usuario usuario)
+    public boolean existeUsuario(String usuario)
     {
-        boolean existe = false;
-
-        if (!lUsuarios.estaVacia())
-        {
-
-            if (lUsuarios.datoExistente(usuario) == !existe)
-            {
-                JOptionPane.showMessageDialog(null, "El usuario ya existe");
-                existe = true;
-            }
-        }
-        return existe;
+        return lUsuarios.existeUsuario(usuario);
     }
 
     public boolean loginUser(Credenciales loginUser)

@@ -568,16 +568,15 @@ public class win_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_salirbandeja2ActionPerformed
 
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        //TODO Separar usuarios destinatarios en un array
-        //Comprobar usuarios existen
+        DateFormat dateFormat = new SimpleDateFormat(Constantes.FORMATO_FECHA);
+        Date date = new Date();        
+               
         UsuarioDAO.getInstance()
                 .enviarMensaje(new Mensaje(date, 
                                            txa_Mensaje.getText(),
-                                           new Usuario(new Credenciales(Constantes.USUARIO_lOGEADO.getLoginUsuario().getUserName(), null)),
-                                            new ArrayList<>(Arrays.asList(new Usuario(new Credenciales(txt_destinatario.getText(), null)) )))
-                );
+                                           Constantes.USUARIO_lOGEADO.getUserName(),
+                                           new ArrayList<>(Arrays.asList(txt_destinatario.getText().trim().split(";")))
+                                        ));
     }//GEN-LAST:event_btn_enviarActionPerformed
 
     /**
