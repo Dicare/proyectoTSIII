@@ -14,12 +14,10 @@ import ts3.server.entidades.Credenciales;
  */
 public class win_crearcuenta extends javax.swing.JFrame {
 
-    UsuarioDAO oUsuarioDAO;
         
     public win_crearcuenta() {
         initComponents();
         setLocationRelativeTo(this);
-        oUsuarioDAO = new UsuarioDAO();
         
     }
 
@@ -87,7 +85,7 @@ public class win_crearcuenta extends javax.swing.JFrame {
         jLabel3.setText("Contraseña");
 
         txt_crearusuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        txt_crearusuario.setForeground(new java.awt.Color(204, 204, 204));
+        txt_crearusuario.setForeground(new java.awt.Color(102, 102, 102));
         txt_crearusuario.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -396,7 +394,7 @@ public class win_crearcuenta extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_btn_crearActionPerformed
         //TO-DO comprobar usuario y contraseña
         
-        oUsuarioDAO.agregarNuevoUsuario(new Credenciales(txt_crearusuario.getText(),
+        UsuarioDAO.getInstance().agregarNuevoUsuario(new Credenciales(txt_crearusuario.getText(),
                                                             txt_crearclave.getText())
                                         );
         

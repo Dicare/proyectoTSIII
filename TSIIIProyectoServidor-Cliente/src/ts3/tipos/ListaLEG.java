@@ -120,10 +120,9 @@ public class ListaLEG<E extends Usuario>
                     aux.setSiguiente(nuevo);
                     insertado = true;
                 }
-            }
-            talla++;
+            }           
         }
-
+        talla++;
     }
 
     public void eliminarInicio()

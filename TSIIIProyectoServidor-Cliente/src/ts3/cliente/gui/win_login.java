@@ -7,24 +7,24 @@ package ts3.cliente.gui;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import ts3.server.daos.UsuarioDAO;
+import ts3.server.entidades.Credenciales;
+import ts3.server.entidades.Usuario;
+import ts3.util.Constantes;
 
 /**
  *
  * @author alumno
  */
-public class win_login extends javax.swing.JFrame {
+public class win_login extends javax.swing.JFrame
+{
 
-    /**
-     * Creates new form FormularioLogin
-     */
-    public win_login() {
+    public win_login()
+    {
         initComponents();
         setLocationRelativeTo(this);
-        
-        
+
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -288,7 +288,7 @@ public class win_login extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_contraseñaMouseClicked
 
     private void btnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCuentaActionPerformed
-        win_crearcuenta cc=new win_crearcuenta();
+        win_crearcuenta cc = new win_crearcuenta();
         cc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCrearCuentaActionPerformed
@@ -298,42 +298,67 @@ public class win_login extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
-        win_principal pr= new win_principal();
-        pr.setVisible(true);
-        this.dispose();
+
+        Credenciales loginInfo = new Credenciales(txt_usuario.getText(),txt_contraseña.getText());
+        boolean loginCorrecto = UsuarioDAO.getInstance()
+                                          .loginUser(loginInfo);
+        if (loginCorrecto)
+        {
+            Constantes.USUARIO_lOGEADO = new Usuario(loginInfo);
+            
+            win_principal pr = new win_principal();
+            pr.setVisible(true);
+            this.dispose();
+        } else
+        {
+            JOptionPane.showMessageDialog(rootPane,
+                    "Usuario o contraña incorrecta", "Error!",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(win_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(win_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(win_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(win_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new win_login().setVisible(true);
             }
         });

@@ -5,7 +5,17 @@
  */
 package ts3.cliente.gui;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import javax.swing.JFrame;
+import ts3.server.daos.UsuarioDAO;
+import ts3.server.entidades.Credenciales;
+import ts3.server.entidades.Mensaje;
+import ts3.server.entidades.Usuario;
+import ts3.util.Constantes;
 
 /**
  *
@@ -55,7 +65,7 @@ public class win_principal extends javax.swing.JFrame {
         txt_asunto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txa_Mensaje = new javax.swing.JTextArea();
         btn_enviar = new javax.swing.JButton();
         pnl_leidos = new javax.swing.JPanel();
         btn_salirleidos = new javax.swing.JButton();
@@ -76,7 +86,6 @@ public class win_principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Secure Mail");
         setMinimumSize(new java.awt.Dimension(450, 450));
-        setPreferredSize(new java.awt.Dimension(1070, 900));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(tab_mensajes.getPreferredSize());
@@ -210,9 +219,9 @@ public class win_principal extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel4.setText("Mensaje:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txa_Mensaje.setColumns(20);
+        txa_Mensaje.setRows(5);
+        jScrollPane1.setViewportView(txa_Mensaje);
 
         btn_enviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/enviar.PNG"))); // NOI18N
         btn_enviar.setContentAreaFilled(false);
@@ -264,9 +273,9 @@ public class win_principal extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txt_destinatario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txt_asunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_asunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -535,23 +544,40 @@ public class win_principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_salirleidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirleidosActionPerformed
+        win_login oWin_login = new win_login();
+        oWin_login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_salirleidosActionPerformed
 
     private void btn_salirbandejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirbandejaActionPerformed
+        win_login oWin_login = new win_login();
+        oWin_login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_salirbandejaActionPerformed
 
     private void btn_salirbandeja1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirbandeja1ActionPerformed
-        // TODO add your handling code here:
+        win_login oWin_login = new win_login();
+        oWin_login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_salirbandeja1ActionPerformed
 
     private void btn_salirbandeja2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirbandeja2ActionPerformed
-        // TODO add your handling code here:
+        win_login oWin_login = new win_login();
+        oWin_login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_salirbandeja2ActionPerformed
 
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
-        
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        //TODO Separar usuarios destinatarios en un array
+        //Comprobar usuarios existen
+        UsuarioDAO.getInstance()
+                .enviarMensaje(new Mensaje(date, 
+                                           txa_Mensaje.getText(),
+                                           new Usuario(new Credenciales(Constantes.USUARIO_lOGEADO.getLoginUsuario().getUserName(), null)),
+                                            new ArrayList<>(Arrays.asList(new Usuario(new Credenciales(txt_destinatario.getText(), null)) )))
+                );
     }//GEN-LAST:event_btn_enviarActionPerformed
 
     /**
@@ -622,13 +648,13 @@ public class win_principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel pnl_entrada;
     private javax.swing.JPanel pnl_leidos;
     private javax.swing.JTabbedPane tab_mensajes;
     private javax.swing.JTable tbl_entrada;
     private javax.swing.JTable tbl_salida;
     private javax.swing.JTable tbl_salida1;
+    private javax.swing.JTextArea txa_Mensaje;
     private javax.swing.JTextField txt_asunto;
     private javax.swing.JTextField txt_destinatario;
     // End of variables declaration//GEN-END:variables
