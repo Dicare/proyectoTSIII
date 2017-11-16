@@ -2,102 +2,176 @@ package ts3.tipos;
 
 import ts3.server.entidades.Usuario;
 
-public class ListaLEG<E extends Usuario> {
+public class ListaLEG<E extends Usuario>
+{
+
     private NodoLEG<E> primero;
     private int talla;                 // numero de nodos de la lista
 
-    public ListaLEG() {
-        primero=null;
-        talla=0;
+    public ListaLEG()
+    {
+        primero = null;
+        talla = 0;
     }
 
-    public NodoLEG<E> getPrimero() {
+    public NodoLEG<E> getPrimero()
+    {
         return primero;
     }
 
-    public int getTalla() {
+    public int getTalla()
+    {
         return talla;
     }
-    public boolean estaVacia(){
-        return primero==null;
+
+    public boolean estaVacia()
+    {
+        return primero == null;
     }
-    
-    public boolean datoExistente(E x){
-        boolean existe=false;
-        NodoLEG<E> aux=primero;
-        while(aux!=null && !existe){
-            if(aux.getDato().equals(x)){
-            existe=true;
+
+    public boolean datoExistente(E x)
+    {
+        boolean existe = false;
+        NodoLEG<E> aux = primero;
+        while (aux != null && !existe)
+        {
+            if (aux.getDato().equals(x))
+            {
+                existe = true;
+            }
+            aux = aux.getSiguiente();
         }
-        aux=aux.getSiguiente();
-    }
         return existe;
     }
-    
+
     //reglas de negocio
     // operaciones basicas 
-    // inserción al inicio, al final,
+    // inserción ordenada,
     // eliminar al inicio y al final
-    public void insertarAlInicio(E x){
-        NodoLEG<E> nuevo =new NodoLEG<>(x);
+    private void insertarAlInicio(E x)
+    {
+        NodoLEG<E> nuevo = new NodoLEG<>(x);
         nuevo.setSiguiente(primero);
-        primero=nuevo;
-        talla++;        
+        primero = nuevo;
+        talla++;
     }
-    public void insertarAlFinal(E x){
-        NodoLEG<E> nuevo =new NodoLEG<>(x);
-        
-        if(primero==null){     //caso lista vacia
-            primero=nuevo;
-        }else{
-            NodoLEG<E> aux=primero;
-            while(aux.getSiguiente()!=null){
-                aux=aux.getSiguiente();
+
+    private void insertarAlFinal(E x)
+    {
+        NodoLEG<E> nuevo = new NodoLEG<>(x);
+
+        if (primero == null)
+        {     //caso lista vacia
+            primero = nuevo;
+        } else
+        {
+            NodoLEG<E> aux = primero;
+            while (aux.getSiguiente() != null)
+            {
+                aux = aux.getSiguiente();
             }
             aux.setSiguiente(nuevo);
         }
-        talla++;       
+        talla++;
     }
-    
+
     //Inserta ordenadamente por nombre de usuario
-    public void insertarOrdenado(E x){
-        
-    }
-    
-    public void eliminarInicio(){        
-        if(primero==null){
-            System.out.println("Lista vacia");
-        }else{
-            primero=primero.getSiguiente();
-            talla--;
-        }        
-    }    
-    public void eliminarFinal(){
-        if(primero==null){
-            System.out.println("Lista Vacia");
-        }else{
-            NodoLEG<E> aux=primero, ant=null;
-            while(aux.getSiguiente()!=null){
-                ant=aux;
-                aux=aux.getSiguiente();
+    public void insertarOrdenado(E x)
+    {
+        NodoLEG<E> nuevo = new NodoLEG<>(x);
+
+        if (primero == null) //caso lista vacia
+        {
+            primero = nuevo;
+        } else
+        {
+            NodoLEG<E> aux = primero;
+            boolean insertado = false;
+
+            if (x.getLoginUsuario().getUserName()
+                    .compareTo(primero.getDato().getLoginUsuario().getUserName()) < 0)
+            {
+                nuevo.setSiguiente(aux);
+                primero = nuevo;
+                insertado = true;
             }
-            if(ant!=null){
-                ant.setSiguiente(null);
-            }else{
-                primero=null;
-            }            
+
+            while (insertado != true)
+            {
+                if (aux.getSiguiente() != null)
+                {
+                    int compareToThis = x.getLoginUsuario().getUserName()
+                                            .compareTo(aux.getDato().toString());
+                    
+                    int comparetoNext = x.getLoginUsuario().getUserName()
+                                            .compareTo(aux.getSiguiente().getDato().getLoginUsuario().getUserName());
+                    
+                    if (compareToThis > 0 && comparetoNext < 0)
+                    {
+                        nuevo.setSiguiente(aux.getSiguiente());
+                        aux.setSiguiente(nuevo);
+                        insertado = true;
+                    } else
+                    {
+                        aux = aux.getSiguiente();
+                    }
+                } else
+                {
+                    aux.setSiguiente(nuevo);
+                    insertado = true;
+                }
+            }
+            talla++;
+        }
+
+    }
+
+    public void eliminarInicio()
+    {
+        if (primero == null)
+        {
+            System.out.println("Lista vacia");
+        } else
+        {
+            primero = primero.getSiguiente();
             talla--;
         }
     }
-    
-    public String verLista(){
-        String cad="";
-        
-        NodoLEG<E> aux=primero;
-        while(aux!=null){
-            cad+=aux.getDato().toString()+"\n";
-            aux=aux.getSiguiente();
-        }       
+
+    public void eliminarFinal()
+    {
+        if (primero == null)
+        {
+            System.out.println("Lista Vacia");
+        } else
+        {
+            NodoLEG<E> aux = primero, ant = null;
+            while (aux.getSiguiente() != null)
+            {
+                ant = aux;
+                aux = aux.getSiguiente();
+            }
+            if (ant != null)
+            {
+                ant.setSiguiente(null);
+            } else
+            {
+                primero = null;
+            }
+            talla--;
+        }
+    }
+
+    public String verLista()
+    {
+        String cad = "";
+
+        NodoLEG<E> aux = primero;
+        while (aux != null)
+        {
+            cad += aux.getDato().toString() + "\n";
+            aux = aux.getSiguiente();
+        }
         return cad;
-    }   
+    }
 }

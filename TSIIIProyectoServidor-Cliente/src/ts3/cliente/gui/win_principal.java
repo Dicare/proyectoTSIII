@@ -5,6 +5,8 @@
  */
 package ts3.cliente.gui;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author sjarc
@@ -17,6 +19,7 @@ public class win_principal extends javax.swing.JFrame {
     public win_principal() {
         initComponents();
         setLocationRelativeTo(this);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -26,7 +29,8 @@ public class win_principal extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -71,9 +75,11 @@ public class win_principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Secure Mail");
-        setResizable(false);
+        setMinimumSize(new java.awt.Dimension(450, 450));
+        setPreferredSize(new java.awt.Dimension(1070, 900));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(tab_mensajes.getPreferredSize());
 
         jPanel3.setBackground(new java.awt.Color(242, 242, 246));
 
@@ -175,6 +181,7 @@ public class win_principal extends javax.swing.JFrame {
         tab_mensajes.setAlignmentX(0.0F);
         tab_mensajes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tab_mensajes.setInheritsPopupMenu(true);
+        tab_mensajes.setPreferredSize(new java.awt.Dimension(500, 350));
 
         pnl_entrada.setBackground(new java.awt.Color(242, 242, 246));
 
@@ -183,8 +190,10 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja.setText("Salir");
         btn_salirbandeja.setBorderPainted(false);
         btn_salirbandeja.setContentAreaFilled(false);
-        btn_salirbandeja.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_salirbandeja.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_salirbandejaActionPerformed(evt);
             }
         });
@@ -192,13 +201,13 @@ public class win_principal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Mensaje Nuevo:");
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel2.setText("Para:");
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel3.setText("Asunto:");
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel4.setText("Mensaje:");
 
         jTextArea1.setColumns(20);
@@ -207,8 +216,10 @@ public class win_principal extends javax.swing.JFrame {
 
         btn_enviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/enviar.PNG"))); // NOI18N
         btn_enviar.setContentAreaFilled(false);
-        btn_enviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_enviar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_enviarActionPerformed(evt);
             }
         });
@@ -217,29 +228,31 @@ public class win_principal extends javax.swing.JFrame {
         pnl_entrada.setLayout(pnl_entradaLayout);
         pnl_entradaLayout.setHorizontalGroup(
             pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_entradaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_salirbandeja)
-                .addGap(63, 63, 63))
             .addGroup(pnl_entradaLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
                 .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
                     .addGroup(pnl_entradaLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
                         .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_destinatario, javax.swing.GroupLayout.PREFERRED_SIZE, 1152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_asunto, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(pnl_entradaLayout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_enviar))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1228, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1)
+                            .addGroup(pnl_entradaLayout.createSequentialGroup()
+                                .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_destinatario)
+                                    .addComponent(txt_asunto)))
+                            .addGroup(pnl_entradaLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(pnl_entradaLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 635, Short.MAX_VALUE)
+                                .addComponent(btn_enviar))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_entradaLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_salirbandeja)))
+                .addContainerGap())
         );
         pnl_entradaLayout.setVerticalGroup(
             pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,11 +271,11 @@ public class win_principal extends javax.swing.JFrame {
                 .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_salirbandeja)
-                .addGap(67, 67, 67))
+                .addContainerGap())
         );
 
         tab_mensajes.addTab("Redactar                 ", pnl_entrada);
@@ -274,8 +287,10 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirleidos.setText("Salir");
         btn_salirleidos.setBorderPainted(false);
         btn_salirleidos.setContentAreaFilled(false);
-        btn_salirleidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_salirleidos.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_salirleidosActionPerformed(evt);
             }
         });
@@ -283,11 +298,15 @@ public class win_principal extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel5.setText("Bandeja de Entrada:");
 
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(455, 420));
+
         tbl_entrada.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
@@ -295,7 +314,8 @@ public class win_principal extends javax.swing.JFrame {
         tbl_entrada.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_entrada.setAutoscrolls(false);
         jScrollPane2.setViewportView(tbl_entrada);
-        if (tbl_entrada.getColumnModel().getColumnCount() > 0) {
+        if (tbl_entrada.getColumnModel().getColumnCount() > 0)
+        {
             tbl_entrada.getColumnModel().getColumn(0).setMinWidth(240);
             tbl_entrada.getColumnModel().getColumn(1).setMinWidth(894);
             tbl_entrada.getColumnModel().getColumn(2).setMinWidth(100);
@@ -305,16 +325,19 @@ public class win_principal extends javax.swing.JFrame {
         pnl_leidos.setLayout(pnl_leidosLayout);
         pnl_leidosLayout.setHorizontalGroup(
             pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_leidosLayout.createSequentialGroup()
-                .addContainerGap(1183, Short.MAX_VALUE)
-                .addComponent(btn_salirleidos)
-                .addGap(63, 63, 63))
             .addGroup(pnl_leidosLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
                 .addGroup(pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_leidosLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_salirleidos))
+                    .addGroup(pnl_leidosLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnl_leidosLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         pnl_leidosLayout.setVerticalGroup(
             pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,10 +345,10 @@ public class win_principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_salirleidos)
-                .addGap(44, 44, 44))
+                .addContainerGap())
         );
 
         tab_mensajes.addTab("Bandeja de Entrada", pnl_leidos);
@@ -337,8 +360,10 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja1.setText("Salir");
         btn_salirbandeja1.setBorderPainted(false);
         btn_salirbandeja1.setContentAreaFilled(false);
-        btn_salirbandeja1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_salirbandeja1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_salirbandeja1ActionPerformed(evt);
             }
         });
@@ -347,10 +372,12 @@ public class win_principal extends javax.swing.JFrame {
         jLabel6.setText("Bandeja de Salida:");
 
         tbl_salida.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
@@ -358,7 +385,8 @@ public class win_principal extends javax.swing.JFrame {
         tbl_salida.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_salida.setAutoscrolls(false);
         jScrollPane3.setViewportView(tbl_salida);
-        if (tbl_salida.getColumnModel().getColumnCount() > 0) {
+        if (tbl_salida.getColumnModel().getColumnCount() > 0)
+        {
             tbl_salida.getColumnModel().getColumn(0).setMinWidth(240);
             tbl_salida.getColumnModel().getColumn(1).setMinWidth(894);
             tbl_salida.getColumnModel().getColumn(2).setMinWidth(100);
@@ -368,16 +396,19 @@ public class win_principal extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(1183, Short.MAX_VALUE)
-                .addComponent(btn_salirbandeja1)
-                .addGap(63, 63, 63))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_salirbandeja1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,10 +416,10 @@ public class win_principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_salirbandeja1)
-                .addGap(44, 44, 44))
+                .addContainerGap())
         );
 
         tab_mensajes.addTab("Bandeja de Salida   ", jPanel2);
@@ -400,8 +431,10 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja2.setText("Salir");
         btn_salirbandeja2.setBorderPainted(false);
         btn_salirbandeja2.setContentAreaFilled(false);
-        btn_salirbandeja2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_salirbandeja2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_salirbandeja2ActionPerformed(evt);
             }
         });
@@ -410,10 +443,12 @@ public class win_principal extends javax.swing.JFrame {
         jLabel7.setText("Eliminados:");
 
         tbl_salida1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
@@ -421,7 +456,8 @@ public class win_principal extends javax.swing.JFrame {
         tbl_salida1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_salida1.setAutoscrolls(false);
         jScrollPane4.setViewportView(tbl_salida1);
-        if (tbl_salida1.getColumnModel().getColumnCount() > 0) {
+        if (tbl_salida1.getColumnModel().getColumnCount() > 0)
+        {
             tbl_salida1.getColumnModel().getColumn(0).setMinWidth(240);
             tbl_salida1.getColumnModel().getColumn(1).setMinWidth(894);
             tbl_salida1.getColumnModel().getColumn(2).setMinWidth(100);
@@ -431,16 +467,19 @@ public class win_principal extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(1183, Short.MAX_VALUE)
-                .addComponent(btn_salirbandeja2)
-                .addGap(63, 63, 63))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(0, 698, Short.MAX_VALUE))
+                            .addComponent(jScrollPane4)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_salirbandeja2)))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,10 +487,10 @@ public class win_principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_salirbandeja2)
-                .addGap(44, 44, 44))
+                .addContainerGap())
         );
 
         tab_mensajes.addTab("Eliminados              ", jPanel4);
@@ -460,15 +499,22 @@ public class win_principal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tab_mensajes, javax.swing.GroupLayout.DEFAULT_SIZE, 1463, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tab_mensajes, javax.swing.GroupLayout.DEFAULT_SIZE, 1022, Short.MAX_VALUE)
+                        .addGap(28, 28, 28))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tab_mensajes))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tab_mensajes, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -479,10 +525,13 @@ public class win_principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(2, 2, 2))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_salirleidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirleidosActionPerformed
@@ -502,7 +551,7 @@ public class win_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_salirbandeja2ActionPerformed
 
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btn_enviarActionPerformed
 
     /**

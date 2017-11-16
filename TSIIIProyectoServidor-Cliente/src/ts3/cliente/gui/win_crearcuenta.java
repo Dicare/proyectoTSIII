@@ -5,18 +5,22 @@
  */
 package ts3.cliente.gui;
 
+import ts3.server.daos.UsuarioDAO;
+import ts3.server.entidades.Credenciales;
+
 /**
  *
  * @author sjarc
  */
 public class win_crearcuenta extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FormularioCreaCueta
-     */
+    UsuarioDAO oUsuarioDAO;
+        
     public win_crearcuenta() {
         initComponents();
         setLocationRelativeTo(this);
+        oUsuarioDAO = new UsuarioDAO();
+        
     }
 
     /**
@@ -26,7 +30,8 @@ public class win_crearcuenta extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -70,8 +75,10 @@ public class win_crearcuenta extends javax.swing.JFrame {
 
         txt_nombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_nombre.setForeground(new java.awt.Color(204, 204, 204));
-        txt_nombre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        txt_nombre.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 txt_nombreMouseClicked(evt);
             }
         });
@@ -81,13 +88,17 @@ public class win_crearcuenta extends javax.swing.JFrame {
 
         txt_crearusuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_crearusuario.setForeground(new java.awt.Color(204, 204, 204));
-        txt_crearusuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        txt_crearusuario.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 txt_crearusuarioMouseClicked(evt);
             }
         });
-        txt_crearusuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txt_crearusuario.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 txt_crearusuarioActionPerformed(evt);
             }
         });
@@ -101,8 +112,10 @@ public class win_crearcuenta extends javax.swing.JFrame {
         txt_crearclave.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_crearclave.setText("contraseña");
         txt_crearclave.setToolTipText("");
-        txt_crearclave.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        txt_crearclave.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 txt_crearclaveMouseClicked(evt);
             }
         });
@@ -111,6 +124,13 @@ public class win_crearcuenta extends javax.swing.JFrame {
         btn_crear.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btn_crear.setForeground(new java.awt.Color(255, 255, 255));
         btn_crear.setText("Crear Cuenta");
+        btn_crear.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btn_crearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -219,8 +239,10 @@ public class win_crearcuenta extends javax.swing.JFrame {
         btn_iniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/Iniciar.PNG"))); // NOI18N
         btn_iniciar.setBorderPainted(false);
         btn_iniciar.setContentAreaFilled(false);
-        btn_iniciar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_iniciar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_iniciarActionPerformed(evt);
             }
         });
@@ -293,7 +315,7 @@ public class win_crearcuenta extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(394, 394, 394)
                 .addComponent(jLabel2)
-                .addGap(0, 378, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -305,9 +327,9 @@ public class win_crearcuenta extends javax.swing.JFrame {
                             .addComponent(jLabel15)
                             .addComponent(jLabel4)
                             .addComponent(jLabel30))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124))
+                .addGap(55, 55, 55))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,7 +348,7 @@ public class win_crearcuenta extends javax.swing.JFrame {
                         .addGap(62, 62, 62)
                         .addComponent(jLabel16))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -341,6 +363,7 @@ public class win_crearcuenta extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_nombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_nombreMouseClicked
@@ -352,11 +375,15 @@ public class win_crearcuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_crearusuarioMouseClicked
 
     private void btn_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarActionPerformed
-        win_login lg=new win_login();
+       iniciarSesion();
+    }//GEN-LAST:event_btn_iniciarActionPerformed
+    
+    private void iniciarSesion(){
+         win_login lg=new win_login();
         lg.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btn_iniciarActionPerformed
-
+    }
+    
     private void txt_crearusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_crearusuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_crearusuarioActionPerformed
@@ -364,6 +391,18 @@ public class win_crearcuenta extends javax.swing.JFrame {
     private void txt_crearclaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_crearclaveMouseClicked
         txt_crearclave.setText("");
     }//GEN-LAST:event_txt_crearclaveMouseClicked
+
+    private void btn_crearActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btn_crearActionPerformed
+    {//GEN-HEADEREND:event_btn_crearActionPerformed
+        //TO-DO comprobar usuario y contraseña
+        
+        oUsuarioDAO.agregarNuevoUsuario(new Credenciales(txt_crearusuario.getText(),
+                                                            txt_crearclave.getText())
+                                        );
+        
+        iniciarSesion();
+        
+    }//GEN-LAST:event_btn_crearActionPerformed
 
     /**
      * @param args the command line arguments

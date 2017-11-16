@@ -33,7 +33,8 @@ public class win_login extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -79,8 +80,10 @@ public class win_login extends javax.swing.JFrame {
         txt_usuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_usuario.setText("Ingresar correo o usuario");
         txt_usuario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txt_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        txt_usuario.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 txt_usuarioMouseClicked(evt);
             }
         });
@@ -130,8 +133,10 @@ public class win_login extends javax.swing.JFrame {
         txt_contraseña.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_contraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_contraseña.setText("contraseña");
-        txt_contraseña.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        txt_contraseña.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 txt_contraseñaMouseClicked(evt);
             }
         });
@@ -139,8 +144,10 @@ public class win_login extends javax.swing.JFrame {
         btn_siguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/siguiente.PNG"))); // NOI18N
         btn_siguiente.setBorderPainted(false);
         btn_siguiente.setContentAreaFilled(false);
-        btn_siguiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_siguiente.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_siguienteActionPerformed(evt);
             }
         });
@@ -150,8 +157,10 @@ public class win_login extends javax.swing.JFrame {
         btnCrearCuenta.setText("Crear Cuenta");
         btnCrearCuenta.setBorderPainted(false);
         btnCrearCuenta.setContentAreaFilled(false);
-        btnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnCrearCuenta.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnCrearCuentaActionPerformed(evt);
             }
         });
@@ -161,8 +170,10 @@ public class win_login extends javax.swing.JFrame {
         btn_salir.setText("Salir");
         btn_salir.setBorderPainted(false);
         btn_salir.setContentAreaFilled(false);
-        btn_salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_salir.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_salirActionPerformed(evt);
             }
         });
@@ -265,6 +276,7 @@ public class win_login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_usuarioMouseClicked

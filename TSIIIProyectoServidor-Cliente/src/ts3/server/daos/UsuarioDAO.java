@@ -6,24 +6,47 @@ import ts3.server.entidades.Mensaje;
 import ts3.server.entidades.Usuario;
 import ts3.server.interfaces.IUsuarioDAO;
 import ts3.tipos.ListaLEG;
+import ts3.tipos.NodoLEG;
 
 
 public class UsuarioDAO implements IUsuarioDAO{
 
-    ListaLEG<Usuario> lUsuarios;
+    static ListaLEG<Usuario> lUsuarios;
 
     public UsuarioDAO() {
         lUsuarios = new ListaLEG<>();
     }
 
     @Override
-    public void agregarNuevoUsuario(Credenciales nuevoUsuario) {
+    public void agregarNuevoUsuario(Credenciales loginUsuario) {
+        
+        Usuario nuevoUsuario = new Usuario(loginUsuario);
+        if(!existeUsuario(nuevoUsuario)){
+            lUsuarios.insertarOrdenado(nuevoUsuario);    
+        }else{
+            JOptionPane.showMessageDialog(null, "Nombre de Usuario ya existe");
+        }
         
     }
 
     @Override
     public void enviarMensaje(Mensaje Mensaje) {
         
+        for (Usuario usuarioDestino : Mensaje.getlUsuariosDestino())
+        {
+            NodoLEG<Usuario> aux = lUsuarios.getPrimero();
+            while (aux != null)
+            {
+                if (aux.getDato().getLoginUsuario().getUserName()
+                        .equalsIgnoreCase(usuarioDestino.getLoginUsuario().getUserName()))
+                {
+                    aux.getDato().getBuzon().encolar(Mensaje);
+                    aux.setDato(aux.getDato());
+                }
+                aux = aux.getSiguiente();
+            }
+        }
+
     }
 
     @Override
