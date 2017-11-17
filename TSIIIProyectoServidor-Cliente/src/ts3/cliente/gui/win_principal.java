@@ -12,9 +12,7 @@ import java.util.Arrays;
 import java.util.Date;
 import javax.swing.JFrame;
 import ts3.server.daos.UsuarioDAO;
-import ts3.server.entidades.Credenciales;
 import ts3.server.entidades.Mensaje;
-import ts3.server.entidades.Usuario;
 import ts3.util.Constantes;
 
 /**

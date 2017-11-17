@@ -7,6 +7,7 @@ package ts3.cliente.gui;
 
 import ts3.server.daos.UsuarioDAO;
 import ts3.server.entidades.Credenciales;
+import ts3.util.PasswordValidator;
 
 /**
  *
@@ -33,14 +34,12 @@ public class win_crearcuenta extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txt_nombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txt_crearusuario = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         txt_crearclave = new javax.swing.JPasswordField();
         btn_crear = new javax.swing.JButton();
+        lblPasswordMessage = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -68,19 +67,6 @@ public class win_crearcuenta extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(242, 242, 246));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        jLabel1.setText("Nombre");
-
-        txt_nombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        txt_nombre.setForeground(new java.awt.Color(204, 204, 204));
-        txt_nombre.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
-                txt_nombreMouseClicked(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jLabel3.setText("Contraseña");
 
@@ -101,14 +87,10 @@ public class win_crearcuenta extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "@securemail.com", "@securemail.es" }));
-
         jLabel5.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jLabel5.setText("Nombre de Usuario");
 
         txt_crearclave.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        txt_crearclave.setText("contraseña");
         txt_crearclave.setToolTipText("");
         txt_crearclave.addMouseListener(new java.awt.event.MouseAdapter()
         {
@@ -135,45 +117,36 @@ public class win_crearcuenta extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_crearclave, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_crearclave, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                             .addComponent(jLabel3)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txt_nombre, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_crearusuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btn_crear)
-                        .addGap(155, 155, 155))))
+                            .addComponent(txt_crearusuario, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                            .addComponent(lblPasswordMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(btn_crear)))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(62, 62, 62)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(txt_crearusuario))
+                .addComponent(txt_crearusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_crearclave, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPasswordMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addComponent(btn_crear)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
@@ -311,42 +284,41 @@ public class win_crearcuenta extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(394, 394, 394)
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(jLabel16))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel30))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel16)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
                         .addComponent(jLabel30)
                         .addGap(32, 32, 32)
                         .addComponent(jLabel4)
                         .addGap(36, 36, 36)
                         .addComponent(jLabel15)
-                        .addGap(62, 62, 62)
+                        .addGap(63, 63, 63)
                         .addComponent(jLabel16))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(252, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -364,19 +336,15 @@ public class win_crearcuenta extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_nombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_nombreMouseClicked
-        txt_nombre.setText("");
-    }//GEN-LAST:event_txt_nombreMouseClicked
-
     private void txt_crearusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_crearusuarioMouseClicked
         txt_crearusuario.setText("");
     }//GEN-LAST:event_txt_crearusuarioMouseClicked
 
     private void btn_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarActionPerformed
-       iniciarSesion();
+       abrirWinLogin();
     }//GEN-LAST:event_btn_iniciarActionPerformed
     
-    private void iniciarSesion(){
+    private void abrirWinLogin(){
          win_login lg=new win_login();
         lg.setVisible(true);
         this.dispose();
@@ -387,21 +355,28 @@ public class win_crearcuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_crearusuarioActionPerformed
 
     private void txt_crearclaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_crearclaveMouseClicked
-        txt_crearclave.setText("");
+        //txt_crearclave.setText("");
     }//GEN-LAST:event_txt_crearclaveMouseClicked
 
     private void btn_crearActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btn_crearActionPerformed
     {//GEN-HEADEREND:event_btn_crearActionPerformed
-        //TO-DO comprobar usuario y contraseña
-        
-        UsuarioDAO.getInstance().agregarNuevoUsuario(new Credenciales(txt_crearusuario.getText(),
-                                                            txt_crearclave.getText())
-                                        );
-        
-        iniciarSesion();
-        
+       if(PasswordValidator.PASSWORD_PATTERN.matcher(txt_crearclave.getText()).matches() 
+               && txt_crearusuario.getText().trim().length() != 0)
+       {
+           boolean exito = UsuarioDAO.getInstance()
+                                .agregarNuevoUsuario(new Credenciales(txt_crearusuario.getText(),
+                                                                     txt_crearclave.getText())
+                                                     );        
+           if(exito){
+            abrirWinLogin();
+           }
+           
+       }else{
+           lblPasswordMessage.setText("Minimo 6 caracteres con numeros y letras ");
+       }
+         
     }//GEN-LAST:event_btn_crearActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -441,8 +416,6 @@ public class win_crearcuenta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_crear;
     private javax.swing.JButton btn_iniciar;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
@@ -464,8 +437,8 @@ public class win_crearcuenta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblPasswordMessage;
     private javax.swing.JPasswordField txt_crearclave;
     private javax.swing.JTextField txt_crearusuario;
-    private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 }
