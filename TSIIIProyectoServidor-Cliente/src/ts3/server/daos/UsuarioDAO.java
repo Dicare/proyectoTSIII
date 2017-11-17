@@ -1,7 +1,6 @@
 package ts3.server.daos;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import ts3.server.entidades.Credenciales;
 import ts3.server.entidades.Mensaje;
 import ts3.server.entidades.Usuario;
@@ -36,19 +35,16 @@ public class UsuarioDAO implements IUsuarioDAO
         if (!existeUsuario(loginUsuario.getUserName()))
         {
             lUsuarios.insertarOrdenado(new Usuario(loginUsuario));
-
-            JOptionPane.showMessageDialog(null, "Usuario fue creado exitosamente" ); 
             return true;
 
         } else
         {
-            JOptionPane.showMessageDialog(null, "Nombre de Usuario ya existe");
             return false;
         }
     }
 
     @Override
-    public void enviarMensaje(Mensaje Mensaje)
+    public ArrayList<String> enviarMensaje(Mensaje Mensaje)
     {
         ArrayList<String> usuariosRechazados = new ArrayList<>();
 
@@ -56,10 +52,10 @@ public class UsuarioDAO implements IUsuarioDAO
         {
             boolean enviado = false;
             NodoLEG<Usuario> aux = lUsuarios.getPrimero();
-            while (aux != null)
+            while (aux != null && enviado != true)
             {
                 if (aux.getDato().getLoginUsuario().getUserName()
-                        .equalsIgnoreCase(usuarioDestino))
+                        .compareTo(usuarioDestino) == 0)
                 {
                     aux.getDato().agregarNuevoMensaje(Mensaje);
                     enviado = true;
@@ -71,29 +67,9 @@ public class UsuarioDAO implements IUsuarioDAO
                 usuariosRechazados.add(usuarioDestino);
             }
         }
-        
-        if (!usuariosRechazados.isEmpty())
-        {
-            notificarUsuariosRechazados(usuariosRechazados);
-        }
-
+        return usuariosRechazados;
     }
 
-    private void notificarUsuariosRechazados(ArrayList<String> usuariosRechazados)
-    {
-        StringBuilder builder = new StringBuilder("<html>");
-        for (int i = 0; i < usuariosRechazados.size(); i++)
-        {
-            builder.append(usuariosRechazados.get(i));
-            builder.append("<br>");
-        }
-        builder.append("</html>");
-        JOptionPane.showMessageDialog(null, builder.toString(), 
-                                        "Mensaje no enviado a los usuarios:",
-                                        JOptionPane.ERROR_MESSAGE);
-    }
-
-    
     @Override
     public boolean existeUsuario(String usuario)
     {

@@ -5,8 +5,6 @@
  */
 package ts3.cliente.gui;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -31,6 +29,7 @@ public class win_principal extends javax.swing.JFrame {
     public win_principal() {
         initComponents();
         setLocationRelativeTo(this);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -40,7 +39,8 @@ public class win_principal extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -63,7 +63,7 @@ public class win_principal extends javax.swing.JFrame {
         txt_destinatario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txt_Mensaje = new javax.swing.JTextArea();
+        txa_Mensaje = new javax.swing.JTextArea();
         btn_enviar = new javax.swing.JButton();
         pnl_leidos = new javax.swing.JPanel();
         btn_salirleidos = new javax.swing.JButton();
@@ -84,7 +84,6 @@ public class win_principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Secure Mail");
         setMinimumSize(new java.awt.Dimension(450, 450));
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(tab_mensajes.getPreferredSize());
@@ -190,8 +189,10 @@ public class win_principal extends javax.swing.JFrame {
         tab_mensajes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tab_mensajes.setInheritsPopupMenu(true);
         tab_mensajes.setPreferredSize(new java.awt.Dimension(500, 350));
-        tab_mensajes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        tab_mensajes.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 tab_mensajesMouseClicked(evt);
             }
         });
@@ -203,8 +204,10 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja.setText("Salir");
         btn_salirbandeja.setBorderPainted(false);
         btn_salirbandeja.setContentAreaFilled(false);
-        btn_salirbandeja.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_salirbandeja.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_salirbandejaActionPerformed(evt);
             }
         });
@@ -218,14 +221,16 @@ public class win_principal extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel4.setText("Mensaje:");
 
-        txt_Mensaje.setColumns(20);
-        txt_Mensaje.setRows(5);
-        jScrollPane1.setViewportView(txt_Mensaje);
+        txa_Mensaje.setColumns(20);
+        txa_Mensaje.setRows(5);
+        jScrollPane1.setViewportView(txa_Mensaje);
 
         btn_enviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/enviar.PNG"))); // NOI18N
         btn_enviar.setContentAreaFilled(false);
-        btn_enviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_enviar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_enviarActionPerformed(evt);
             }
         });
@@ -285,8 +290,10 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirleidos.setText("Salir");
         btn_salirleidos.setBorderPainted(false);
         btn_salirleidos.setContentAreaFilled(false);
-        btn_salirleidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_salirleidos.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_salirleidosActionPerformed(evt);
             }
         });
@@ -297,10 +304,12 @@ public class win_principal extends javax.swing.JFrame {
         jScrollPane2.setPreferredSize(new java.awt.Dimension(455, 420));
 
         tbl_entrada.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
@@ -308,7 +317,8 @@ public class win_principal extends javax.swing.JFrame {
         tbl_entrada.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_entrada.setAutoscrolls(false);
         jScrollPane2.setViewportView(tbl_entrada);
-        if (tbl_entrada.getColumnModel().getColumnCount() > 0) {
+        if (tbl_entrada.getColumnModel().getColumnCount() > 0)
+        {
             tbl_entrada.getColumnModel().getColumn(0).setMinWidth(240);
             tbl_entrada.getColumnModel().getColumn(1).setMinWidth(894);
             tbl_entrada.getColumnModel().getColumn(2).setMinWidth(100);
@@ -353,8 +363,10 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja1.setText("Salir");
         btn_salirbandeja1.setBorderPainted(false);
         btn_salirbandeja1.setContentAreaFilled(false);
-        btn_salirbandeja1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_salirbandeja1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_salirbandeja1ActionPerformed(evt);
             }
         });
@@ -363,10 +375,12 @@ public class win_principal extends javax.swing.JFrame {
         jLabel6.setText("Bandeja de Salida:");
 
         tbl_salida.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
@@ -374,7 +388,8 @@ public class win_principal extends javax.swing.JFrame {
         tbl_salida.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_salida.setAutoscrolls(false);
         jScrollPane3.setViewportView(tbl_salida);
-        if (tbl_salida.getColumnModel().getColumnCount() > 0) {
+        if (tbl_salida.getColumnModel().getColumnCount() > 0)
+        {
             tbl_salida.getColumnModel().getColumn(0).setMinWidth(240);
             tbl_salida.getColumnModel().getColumn(1).setMinWidth(894);
             tbl_salida.getColumnModel().getColumn(2).setMinWidth(100);
@@ -419,8 +434,10 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja2.setText("Salir");
         btn_salirbandeja2.setBorderPainted(false);
         btn_salirbandeja2.setContentAreaFilled(false);
-        btn_salirbandeja2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_salirbandeja2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btn_salirbandeja2ActionPerformed(evt);
             }
         });
@@ -429,10 +446,12 @@ public class win_principal extends javax.swing.JFrame {
         jLabel7.setText("Eliminados:");
 
         tbl_salida1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
@@ -440,7 +459,8 @@ public class win_principal extends javax.swing.JFrame {
         tbl_salida1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_salida1.setAutoscrolls(false);
         jScrollPane4.setViewportView(tbl_salida1);
-        if (tbl_salida1.getColumnModel().getColumnCount() > 0) {
+        if (tbl_salida1.getColumnModel().getColumnCount() > 0)
+        {
             tbl_salida1.getColumnModel().getColumn(0).setMinWidth(240);
             tbl_salida1.getColumnModel().getColumn(1).setMinWidth(894);
             tbl_salida1.getColumnModel().getColumn(2).setMinWidth(100);
@@ -539,26 +559,38 @@ public class win_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_salirbandeja2ActionPerformed
 
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
-        DateFormat dateFormat = new SimpleDateFormat(Constantes.FORMATO_FECHA);
-        Date date = new Date();        
-        String user = txt_destinatario.getText();
+               
+        ArrayList<String> usuariosRechazados;
+        usuariosRechazados = UsuarioDAO.getInstance()
+                                .enviarMensaje(new Mensaje(new Date(),
+                                        txa_Mensaje.getText(),
+                                        Constantes.USUARIO_lOGEADO.getUserName(),
+                                        new ArrayList<>(Arrays.asList(txt_destinatario.getText().trim().split("\\s*;\\s*")))
+                                ));
         
-        if(UsuarioDAO.getInstance().existeUsuario(user)==true){   
-        UsuarioDAO.getInstance()
-                .enviarMensaje(new Mensaje(date, 
-                                           txt_Mensaje.getText(),
-                                           Constantes.USUARIO_lOGEADO.getUserName(),
-                                           new ArrayList<>(Arrays.asList(txt_destinatario.getText().trim().split(";")))
-                                        ));
-        JOptionPane.showMessageDialog(this, "Mensaje Enviado");
-        txt_Mensaje.setText("");
-        txt_destinatario.setText("");
-       }else{
-        JOptionPane.showMessageDialog(this, "Usuario no Existe");
-        txt_destinatario.setText("");
-        } 
+        if (!usuariosRechazados.isEmpty())
+        {
+            notificarUsuariosRechazados(usuariosRechazados);
+        }else{
+            JOptionPane.showMessageDialog(this, "Mensaje Enviado");
+        }
     }//GEN-LAST:event_btn_enviarActionPerformed
 
+     private void notificarUsuariosRechazados(ArrayList<String> usuariosRechazados)
+    {
+        StringBuilder builder = new StringBuilder("<html>");
+        for (int i = 0; i < usuariosRechazados.size(); i++)
+        {
+            builder.append(usuariosRechazados.get(i));
+            builder.append("<br>");
+        }
+        builder.append("</html>");
+                
+        JOptionPane.showMessageDialog(null, builder.toString(), 
+                                        "Mensaje no enviado a los usuarios:",
+                                        JOptionPane.ERROR_MESSAGE);
+    }
+     
     private void tab_mensajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_mensajesMouseClicked
         cargarDatos();
     }//GEN-LAST:event_tab_mensajesMouseClicked
@@ -636,7 +668,7 @@ public class win_principal extends javax.swing.JFrame {
     private javax.swing.JTable tbl_entrada;
     private javax.swing.JTable tbl_salida;
     private javax.swing.JTable tbl_salida1;
-    private javax.swing.JTextArea txt_Mensaje;
+    private javax.swing.JTextArea txa_Mensaje;
     private javax.swing.JTextField txt_destinatario;
     // End of variables declaration//GEN-END:variables
     

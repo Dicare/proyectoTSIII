@@ -5,6 +5,7 @@
  */
 package ts3.cliente.gui;
 
+import javax.swing.JOptionPane;
 import ts3.server.daos.UsuarioDAO;
 import ts3.server.entidades.Credenciales;
 import ts3.util.PasswordValidator;
@@ -13,13 +14,14 @@ import ts3.util.PasswordValidator;
  *
  * @author sjarc
  */
-public class win_crearcuenta extends javax.swing.JFrame {
+public class win_crearcuenta extends javax.swing.JFrame
+{
 
-        
-    public win_crearcuenta() {
+    public win_crearcuenta()
+    {
         initComponents();
         setLocationRelativeTo(this);
-        
+
     }
 
     /**
@@ -341,15 +343,16 @@ public class win_crearcuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_crearusuarioMouseClicked
 
     private void btn_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarActionPerformed
-       abrirWinLogin();
+        abrirWinLogin();
     }//GEN-LAST:event_btn_iniciarActionPerformed
-    
-    private void abrirWinLogin(){
-         win_login lg=new win_login();
+
+    private void abrirWinLogin()
+    {
+        win_login lg = new win_login();
         lg.setVisible(true);
         this.dispose();
     }
-    
+
     private void txt_crearusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_crearusuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_crearusuarioActionPerformed
@@ -360,54 +363,69 @@ public class win_crearcuenta extends javax.swing.JFrame {
 
     private void btn_crearActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btn_crearActionPerformed
     {//GEN-HEADEREND:event_btn_crearActionPerformed
-       if(PasswordValidator.PASSWORD_PATTERN.matcher(txt_crearclave.getText()).matches() 
-               && txt_crearusuario.getText().trim().length() != 0)
-       {
-           boolean exito = UsuarioDAO.getInstance()
+        if (PasswordValidator.PASSWORD_PATTERN.matcher(txt_crearclave.getText()).matches()
+                && txt_crearusuario.getText().trim().length() != 0)
+        {
+            boolean exito = UsuarioDAO.getInstance()
                                 .agregarNuevoUsuario(new Credenciales(txt_crearusuario.getText(),
-                                                                     txt_crearclave.getText())
-                                                     );        
-           if(exito){
-            abrirWinLogin();
-           }
-           
-       }else{
-           lblPasswordMessage.setText("Minimo 6 caracteres con numeros y letras ");
-       }
-         
+                                                                    txt_crearclave.getText())
+                                                    );
+            if (exito)
+            {
+                JOptionPane.showMessageDialog(null, "Usuario fue creado exitosamente");
+                abrirWinLogin();
+            }else{
+                JOptionPane.showMessageDialog(null, "Nombre de Usuario ya existe");
+            }
+
+        } else
+        {
+            lblPasswordMessage.setText("Minimo 6 caracteres con numeros y letras ");
+        }
+
     }//GEN-LAST:event_btn_crearActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(win_crearcuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(win_crearcuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(win_crearcuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(win_crearcuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new win_crearcuenta().setVisible(true);
             }
         });
