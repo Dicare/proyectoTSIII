@@ -11,8 +11,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import ts3.server.daos.UsuarioDAO;
 import ts3.server.entidades.Mensaje;
+import ts3.server.entidades.Usuario;
+import ts3.tipos.ListaLEG;
+import ts3.tipos.NodoLEG;
 import ts3.util.Constantes;
 
 /**
@@ -21,13 +26,11 @@ import ts3.util.Constantes;
  */
 public class win_principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FormularioPrincipal
-     */
+    DefaultTableModel modelo;
+    ListaLEG<Usuario> aux;
     public win_principal() {
         initComponents();
         setLocationRelativeTo(this);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -37,8 +40,7 @@ public class win_principal extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -59,11 +61,9 @@ public class win_principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txt_destinatario = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txt_asunto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txa_Mensaje = new javax.swing.JTextArea();
+        txt_Mensaje = new javax.swing.JTextArea();
         btn_enviar = new javax.swing.JButton();
         pnl_leidos = new javax.swing.JPanel();
         btn_salirleidos = new javax.swing.JButton();
@@ -84,6 +84,7 @@ public class win_principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Secure Mail");
         setMinimumSize(new java.awt.Dimension(450, 450));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(tab_mensajes.getPreferredSize());
@@ -189,6 +190,11 @@ public class win_principal extends javax.swing.JFrame {
         tab_mensajes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tab_mensajes.setInheritsPopupMenu(true);
         tab_mensajes.setPreferredSize(new java.awt.Dimension(500, 350));
+        tab_mensajes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab_mensajesMouseClicked(evt);
+            }
+        });
 
         pnl_entrada.setBackground(new java.awt.Color(242, 242, 246));
 
@@ -197,10 +203,8 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja.setText("Salir");
         btn_salirbandeja.setBorderPainted(false);
         btn_salirbandeja.setContentAreaFilled(false);
-        btn_salirbandeja.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_salirbandeja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirbandejaActionPerformed(evt);
             }
         });
@@ -211,22 +215,17 @@ public class win_principal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel2.setText("Para:");
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jLabel3.setText("Asunto:");
-
         jLabel4.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel4.setText("Mensaje:");
 
-        txa_Mensaje.setColumns(20);
-        txa_Mensaje.setRows(5);
-        jScrollPane1.setViewportView(txa_Mensaje);
+        txt_Mensaje.setColumns(20);
+        txt_Mensaje.setRows(5);
+        jScrollPane1.setViewportView(txt_Mensaje);
 
         btn_enviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/enviar.PNG"))); // NOI18N
         btn_enviar.setContentAreaFilled(false);
-        btn_enviar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_enviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_enviarActionPerformed(evt);
             }
         });
@@ -242,19 +241,15 @@ public class win_principal extends javax.swing.JFrame {
                         .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1)
                             .addGroup(pnl_entradaLayout.createSequentialGroup()
-                                .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_destinatario)
-                                    .addComponent(txt_asunto)))
+                                .addComponent(jLabel2)
+                                .addGap(32, 32, 32)
+                                .addComponent(txt_destinatario))
                             .addGroup(pnl_entradaLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(pnl_entradaLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 635, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1017, Short.MAX_VALUE)
                                 .addComponent(btn_enviar))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_entradaLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -272,14 +267,10 @@ public class win_principal extends javax.swing.JFrame {
                     .addComponent(txt_destinatario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_asunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(pnl_entradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_salirbandeja)
                 .addContainerGap())
@@ -294,10 +285,8 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirleidos.setText("Salir");
         btn_salirleidos.setBorderPainted(false);
         btn_salirleidos.setContentAreaFilled(false);
-        btn_salirleidos.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_salirleidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirleidosActionPerformed(evt);
             }
         });
@@ -308,12 +297,10 @@ public class win_principal extends javax.swing.JFrame {
         jScrollPane2.setPreferredSize(new java.awt.Dimension(455, 420));
 
         tbl_entrada.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
@@ -321,8 +308,7 @@ public class win_principal extends javax.swing.JFrame {
         tbl_entrada.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_entrada.setAutoscrolls(false);
         jScrollPane2.setViewportView(tbl_entrada);
-        if (tbl_entrada.getColumnModel().getColumnCount() > 0)
-        {
+        if (tbl_entrada.getColumnModel().getColumnCount() > 0) {
             tbl_entrada.getColumnModel().getColumn(0).setMinWidth(240);
             tbl_entrada.getColumnModel().getColumn(1).setMinWidth(894);
             tbl_entrada.getColumnModel().getColumn(2).setMinWidth(100);
@@ -343,7 +329,7 @@ public class win_principal extends javax.swing.JFrame {
                             .addGroup(pnl_leidosLayout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1205, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         pnl_leidosLayout.setVerticalGroup(
@@ -352,7 +338,7 @@ public class win_principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_salirleidos)
                 .addContainerGap())
@@ -367,10 +353,8 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja1.setText("Salir");
         btn_salirbandeja1.setBorderPainted(false);
         btn_salirbandeja1.setContentAreaFilled(false);
-        btn_salirbandeja1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_salirbandeja1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirbandeja1ActionPerformed(evt);
             }
         });
@@ -379,12 +363,10 @@ public class win_principal extends javax.swing.JFrame {
         jLabel6.setText("Bandeja de Salida:");
 
         tbl_salida.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
@@ -392,8 +374,7 @@ public class win_principal extends javax.swing.JFrame {
         tbl_salida.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_salida.setAutoscrolls(false);
         jScrollPane3.setViewportView(tbl_salida);
-        if (tbl_salida.getColumnModel().getColumnCount() > 0)
-        {
+        if (tbl_salida.getColumnModel().getColumnCount() > 0) {
             tbl_salida.getColumnModel().getColumn(0).setMinWidth(240);
             tbl_salida.getColumnModel().getColumn(1).setMinWidth(894);
             tbl_salida.getColumnModel().getColumn(2).setMinWidth(100);
@@ -414,7 +395,7 @@ public class win_principal extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1206, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -423,7 +404,7 @@ public class win_principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_salirbandeja1)
                 .addContainerGap())
@@ -438,10 +419,8 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja2.setText("Salir");
         btn_salirbandeja2.setBorderPainted(false);
         btn_salirbandeja2.setContentAreaFilled(false);
-        btn_salirbandeja2.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_salirbandeja2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirbandeja2ActionPerformed(evt);
             }
         });
@@ -450,12 +429,10 @@ public class win_principal extends javax.swing.JFrame {
         jLabel7.setText("Eliminados:");
 
         tbl_salida1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
@@ -463,8 +440,7 @@ public class win_principal extends javax.swing.JFrame {
         tbl_salida1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_salida1.setAutoscrolls(false);
         jScrollPane4.setViewportView(tbl_salida1);
-        if (tbl_salida1.getColumnModel().getColumnCount() > 0)
-        {
+        if (tbl_salida1.getColumnModel().getColumnCount() > 0) {
             tbl_salida1.getColumnModel().getColumn(0).setMinWidth(240);
             tbl_salida1.getColumnModel().getColumn(1).setMinWidth(894);
             tbl_salida1.getColumnModel().getColumn(2).setMinWidth(100);
@@ -481,7 +457,7 @@ public class win_principal extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
-                                .addGap(0, 698, Short.MAX_VALUE))
+                                .addGap(0, 1080, Short.MAX_VALUE))
                             .addComponent(jScrollPane4)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -494,7 +470,7 @@ public class win_principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_salirbandeja2)
                 .addContainerGap())
@@ -506,21 +482,18 @@ public class win_principal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(tab_mensajes, javax.swing.GroupLayout.DEFAULT_SIZE, 1022, Short.MAX_VALUE)
-                        .addGap(28, 28, 28))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tab_mensajes, javax.swing.GroupLayout.DEFAULT_SIZE, 1406, Short.MAX_VALUE)
+                .addGap(40, 40, 40))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tab_mensajes, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)
+                .addComponent(tab_mensajes, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -568,14 +541,27 @@ public class win_principal extends javax.swing.JFrame {
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
         DateFormat dateFormat = new SimpleDateFormat(Constantes.FORMATO_FECHA);
         Date date = new Date();        
-               
+        String user = txt_destinatario.getText();
+        
+        if(UsuarioDAO.getInstance().existeUsuario(user)==true){   
         UsuarioDAO.getInstance()
                 .enviarMensaje(new Mensaje(date, 
-                                           txa_Mensaje.getText(),
+                                           txt_Mensaje.getText(),
                                            Constantes.USUARIO_lOGEADO.getUserName(),
                                            new ArrayList<>(Arrays.asList(txt_destinatario.getText().trim().split(";")))
                                         ));
+        JOptionPane.showMessageDialog(this, "Mensaje Enviado");
+        txt_Mensaje.setText("");
+        txt_destinatario.setText("");
+       }else{
+        JOptionPane.showMessageDialog(this, "Usuario no Existe");
+        txt_destinatario.setText("");
+        } 
     }//GEN-LAST:event_btn_enviarActionPerformed
+
+    private void tab_mensajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_mensajesMouseClicked
+        cargarDatos();
+    }//GEN-LAST:event_tab_mensajesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -632,7 +618,6 @@ public class win_principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -651,8 +636,25 @@ public class win_principal extends javax.swing.JFrame {
     private javax.swing.JTable tbl_entrada;
     private javax.swing.JTable tbl_salida;
     private javax.swing.JTable tbl_salida1;
-    private javax.swing.JTextArea txa_Mensaje;
-    private javax.swing.JTextField txt_asunto;
+    private javax.swing.JTextArea txt_Mensaje;
     private javax.swing.JTextField txt_destinatario;
     // End of variables declaration//GEN-END:variables
+    
+    public void cargarDatos(){
+        modelo=new DefaultTableModel();
+        aux= new ListaLEG<Usuario>();
+        
+        NodoLEG<Usuario> nodoaux=aux.getPrimero();
+        
+        while(nodoaux !=null){
+            modelo.addRow(new Object [] {nodoaux.getDato().getLoginUsuario().getUserName(),
+                                         nodoaux.getDato().getBuzon().frente().getMensaje(),
+                                         nodoaux.getDato().getBuzon().frente().getFecha().toString()});
+            
+            nodoaux=nodoaux.getSiguiente();
+            
+        }        
+        
+    }
+
 }

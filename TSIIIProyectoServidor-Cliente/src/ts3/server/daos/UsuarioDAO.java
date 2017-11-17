@@ -36,7 +36,10 @@ public class UsuarioDAO implements IUsuarioDAO
         if (!existeUsuario(loginUsuario.getUserName()))
         {
             lUsuarios.insertarOrdenado(new Usuario(loginUsuario));
+
+            JOptionPane.showMessageDialog(null, "Usuario fue creado exitosamente" ); 
             return true;
+
         } else
         {
             JOptionPane.showMessageDialog(null, "Nombre de Usuario ya existe");
