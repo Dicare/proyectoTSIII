@@ -34,7 +34,7 @@ public class ListaLEG<E extends Usuario>
         boolean existe = false;
         NodoLEG<E> aux = primero;
         
-        while (aux != null && !existe)
+        while (aux != null)
         {
             if (aux.getDato().getLoginUsuario().getUserName()
                     .compareTo(userName) == 0)

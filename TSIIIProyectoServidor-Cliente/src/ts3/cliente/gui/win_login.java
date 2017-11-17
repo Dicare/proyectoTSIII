@@ -5,11 +5,9 @@
  */
 package ts3.cliente.gui;
 
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import ts3.server.daos.UsuarioDAO;
 import ts3.server.entidades.Credenciales;
-import ts3.server.entidades.Usuario;
 import ts3.util.Constantes;
 
 /**
