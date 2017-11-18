@@ -1,6 +1,7 @@
 package ts3.server.daos;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import ts3.server.entidades.Credenciales;
 import ts3.server.entidades.Mensaje;
 import ts3.server.entidades.Usuario;
@@ -100,7 +101,18 @@ public class UsuarioDAO implements IUsuarioDAO
     @Override
     public Mensaje leerPrimerMensajeBuzon(Credenciales credencialesUsuario)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Mensaje msjBorrado=null;
+        
+        if(lUsuarios.getPrimero().getDato().getMensajesRecibidos()!=0){
+                msjBorrado =  lUsuarios.getPrimero().getDato().getBuzon().desencolar();               
+               JOptionPane.showMessageDialog(null, msjBorrado);
+               
+        }else{
+            JOptionPane.showMessageDialog(null,"No hay mensajes en la Bandeja");
+        }
+        return msjBorrado;
+        
     }
+    
 
 }

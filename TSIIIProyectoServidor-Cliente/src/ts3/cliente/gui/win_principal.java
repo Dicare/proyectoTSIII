@@ -30,6 +30,7 @@ public class win_principal extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        modelo=new DefaultTableModel();
     }
 
     /**
@@ -39,8 +40,7 @@ public class win_principal extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -70,6 +70,7 @@ public class win_principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbl_entrada = new javax.swing.JTable();
+        btn_leer = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btn_salirbandeja1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -189,10 +190,8 @@ public class win_principal extends javax.swing.JFrame {
         tab_mensajes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tab_mensajes.setInheritsPopupMenu(true);
         tab_mensajes.setPreferredSize(new java.awt.Dimension(500, 350));
-        tab_mensajes.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        tab_mensajes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tab_mensajesMouseClicked(evt);
             }
         });
@@ -204,10 +203,8 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja.setText("Salir");
         btn_salirbandeja.setBorderPainted(false);
         btn_salirbandeja.setContentAreaFilled(false);
-        btn_salirbandeja.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_salirbandeja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirbandejaActionPerformed(evt);
             }
         });
@@ -227,10 +224,8 @@ public class win_principal extends javax.swing.JFrame {
 
         btn_enviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/enviar.PNG"))); // NOI18N
         btn_enviar.setContentAreaFilled(false);
-        btn_enviar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_enviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_enviarActionPerformed(evt);
             }
         });
@@ -290,10 +285,8 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirleidos.setText("Salir");
         btn_salirleidos.setBorderPainted(false);
         btn_salirleidos.setContentAreaFilled(false);
-        btn_salirleidos.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_salirleidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirleidosActionPerformed(evt);
             }
         });
@@ -304,12 +297,10 @@ public class win_principal extends javax.swing.JFrame {
         jScrollPane2.setPreferredSize(new java.awt.Dimension(455, 420));
 
         tbl_entrada.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
@@ -317,12 +308,21 @@ public class win_principal extends javax.swing.JFrame {
         tbl_entrada.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_entrada.setAutoscrolls(false);
         jScrollPane2.setViewportView(tbl_entrada);
-        if (tbl_entrada.getColumnModel().getColumnCount() > 0)
-        {
+        if (tbl_entrada.getColumnModel().getColumnCount() > 0) {
             tbl_entrada.getColumnModel().getColumn(0).setMinWidth(240);
             tbl_entrada.getColumnModel().getColumn(1).setMinWidth(894);
             tbl_entrada.getColumnModel().getColumn(2).setMinWidth(100);
         }
+
+        btn_leer.setBackground(new java.awt.Color(51, 102, 255));
+        btn_leer.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btn_leer.setForeground(new java.awt.Color(255, 255, 255));
+        btn_leer.setText("Leer Mensajes");
+        btn_leer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_leerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_leidosLayout = new javax.swing.GroupLayout(pnl_leidos);
         pnl_leidos.setLayout(pnl_leidosLayout);
@@ -336,20 +336,24 @@ public class win_principal extends javax.swing.JFrame {
                     .addGroup(pnl_leidosLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1205, Short.MAX_VALUE)
                             .addGroup(pnl_leidosLayout.createSequentialGroup()
                                 .addComponent(jLabel5)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1205, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_leer)
+                                .addGap(34, 34, 34)))))
                 .addContainerGap())
         );
         pnl_leidosLayout.setVerticalGroup(
             pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_leidosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGroup(pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(btn_leer))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
                 .addComponent(btn_salirleidos)
                 .addContainerGap())
         );
@@ -363,10 +367,8 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja1.setText("Salir");
         btn_salirbandeja1.setBorderPainted(false);
         btn_salirbandeja1.setContentAreaFilled(false);
-        btn_salirbandeja1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_salirbandeja1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirbandeja1ActionPerformed(evt);
             }
         });
@@ -375,12 +377,10 @@ public class win_principal extends javax.swing.JFrame {
         jLabel6.setText("Bandeja de Salida:");
 
         tbl_salida.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
@@ -388,8 +388,7 @@ public class win_principal extends javax.swing.JFrame {
         tbl_salida.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_salida.setAutoscrolls(false);
         jScrollPane3.setViewportView(tbl_salida);
-        if (tbl_salida.getColumnModel().getColumnCount() > 0)
-        {
+        if (tbl_salida.getColumnModel().getColumnCount() > 0) {
             tbl_salida.getColumnModel().getColumn(0).setMinWidth(240);
             tbl_salida.getColumnModel().getColumn(1).setMinWidth(894);
             tbl_salida.getColumnModel().getColumn(2).setMinWidth(100);
@@ -434,10 +433,8 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja2.setText("Salir");
         btn_salirbandeja2.setBorderPainted(false);
         btn_salirbandeja2.setContentAreaFilled(false);
-        btn_salirbandeja2.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_salirbandeja2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirbandeja2ActionPerformed(evt);
             }
         });
@@ -446,12 +443,10 @@ public class win_principal extends javax.swing.JFrame {
         jLabel7.setText("Eliminados:");
 
         tbl_salida1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
@@ -459,8 +454,7 @@ public class win_principal extends javax.swing.JFrame {
         tbl_salida1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_salida1.setAutoscrolls(false);
         jScrollPane4.setViewportView(tbl_salida1);
-        if (tbl_salida1.getColumnModel().getColumnCount() > 0)
-        {
+        if (tbl_salida1.getColumnModel().getColumnCount() > 0) {
             tbl_salida1.getColumnModel().getColumn(0).setMinWidth(240);
             tbl_salida1.getColumnModel().getColumn(1).setMinWidth(894);
             tbl_salida1.getColumnModel().getColumn(2).setMinWidth(100);
@@ -595,6 +589,11 @@ public class win_principal extends javax.swing.JFrame {
         cargarDatos();
     }//GEN-LAST:event_tab_mensajesMouseClicked
 
+    private void btn_leerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_leerActionPerformed
+        
+        
+    }//GEN-LAST:event_btn_leerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -633,6 +632,7 @@ public class win_principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_enviar;
+    private javax.swing.JButton btn_leer;
     private javax.swing.JButton btn_salirbandeja;
     private javax.swing.JButton btn_salirbandeja1;
     private javax.swing.JButton btn_salirbandeja2;
@@ -673,7 +673,6 @@ public class win_principal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     
     public void cargarDatos(){
-        modelo=new DefaultTableModel();
         aux= new ListaLEG<Usuario>();
         
         NodoLEG<Usuario> nodoaux=aux.getPrimero();

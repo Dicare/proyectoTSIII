@@ -162,6 +162,7 @@ public class ListaLEG<E extends Usuario>
             talla--;
         }
     }
+    
 
     public String verLista()
     {
