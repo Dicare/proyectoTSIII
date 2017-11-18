@@ -6,6 +6,7 @@ import ts3.server.entidades.Credenciales;
 import ts3.server.entidades.Mensaje;
 import ts3.server.entidades.Usuario;
 import ts3.server.interfaces.IUsuarioDAO;
+import ts3.tipos.ArrayCola;
 import ts3.tipos.ListaLEG;
 import ts3.tipos.NodoLEG;
 
@@ -102,9 +103,10 @@ public class UsuarioDAO implements IUsuarioDAO
     public Mensaje leerPrimerMensajeBuzon(Credenciales credencialesUsuario)
     {
         Mensaje msjBorrado=null;
-        
+        Usuario user=null;
         if(lUsuarios.getPrimero().getDato().getMensajesRecibidos()!=0){
-                msjBorrado =  lUsuarios.getPrimero().getDato().getBuzon().desencolar();               
+                msjBorrado =  lUsuarios.getPrimero().getDato().getBuzon().desencolar();
+                user.agregaraBorrados(msjBorrado);
                JOptionPane.showMessageDialog(null, msjBorrado);
                
         }else{
@@ -113,6 +115,12 @@ public class UsuarioDAO implements IUsuarioDAO
         return msjBorrado;
         
     }
+    
+      
+        
+        
+    
+    
     
     
     
