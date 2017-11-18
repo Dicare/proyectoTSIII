@@ -102,7 +102,6 @@ public class UsuarioDAO implements IUsuarioDAO
     @Override
     public Mensaje leerPrimerMensajeBuzon(Credenciales credencialesUsuario)
     {
-<<<<<<< HEAD
         Mensaje mensajeDevuelto = null;
         
         if(loginUser(credencialesUsuario))
@@ -147,28 +146,6 @@ public class UsuarioDAO implements IUsuarioDAO
         {
             return -1; //ErrorCode
         }
-=======
-        Mensaje msjBorrado=null;
-        Usuario user=null;
-        if(lUsuarios.getPrimero().getDato().getMensajesRecibidos()!=0){
-                msjBorrado =  lUsuarios.getPrimero().getDato().getBuzon().desencolar();
-                user.agregaraBorrados(msjBorrado);
-               JOptionPane.showMessageDialog(null, msjBorrado);
-               
-        }else{
-            JOptionPane.showMessageDialog(null,"No hay mensajes en la Bandeja");
-        }
-        return msjBorrado;
-        
->>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
-    }
-    
       
-        
-        
-    
-    
-    
-    
-
+}
 }
