@@ -59,7 +59,10 @@ public class Mensaje {
     
     @Override
     public String toString(){
-        return "";
+        return "Fecha de Mensaje : " + fecha +"\n"
+                + "De : " +usuarioOrigen+ "\n"
+                + "A :" + lUsuariosDestino+ "\n"
+                + "Mensaje : " + mensaje;
     }
     
 }

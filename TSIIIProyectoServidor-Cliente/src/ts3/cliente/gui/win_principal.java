@@ -590,8 +590,12 @@ public class win_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_tab_mensajesMouseClicked
 
     private void btn_leerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_leerActionPerformed
+        if(modelo.getRowCount()!=0){
+        UsuarioDAO.getInstance().leerPrimerMensajeBuzon(Constantes.USUARIO_lOGEADO);
         
-        
+        }else{
+            JOptionPane.showMessageDialog(this, "Sin Mensajes No Leidos    ");
+        }
     }//GEN-LAST:event_btn_leerActionPerformed
 
     /**
