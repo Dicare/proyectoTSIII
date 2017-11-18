@@ -14,7 +14,6 @@ import javax.swing.table.DefaultTableModel;
 import ts3.server.daos.UsuarioDAO;
 import ts3.server.entidades.Mensaje;
 import ts3.server.entidades.Usuario;
-import ts3.tipos.ArrayCola;
 import ts3.tipos.ListaLEG;
 import ts3.tipos.NodoLEG;
 import ts3.util.Constantes;
@@ -31,7 +30,7 @@ public class win_principal extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        modelo= new DefaultTableModel();
+        modelo=new DefaultTableModel();
     }
 
     /**
@@ -81,7 +80,7 @@ public class win_principal extends javax.swing.JFrame {
         btn_salirbandeja2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tbl_eliminados = new javax.swing.JTable();
+        tbl_salida1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Secure Mail");
@@ -443,7 +442,7 @@ public class win_principal extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel7.setText("Eliminados:");
 
-        tbl_eliminados.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_salida1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -451,14 +450,14 @@ public class win_principal extends javax.swing.JFrame {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
         ));
-        tbl_eliminados.setToolTipText("");
-        tbl_eliminados.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tbl_eliminados.setAutoscrolls(false);
-        jScrollPane4.setViewportView(tbl_eliminados);
-        if (tbl_eliminados.getColumnModel().getColumnCount() > 0) {
-            tbl_eliminados.getColumnModel().getColumn(0).setMinWidth(240);
-            tbl_eliminados.getColumnModel().getColumn(1).setMinWidth(894);
-            tbl_eliminados.getColumnModel().getColumn(2).setMinWidth(100);
+        tbl_salida1.setToolTipText("");
+        tbl_salida1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbl_salida1.setAutoscrolls(false);
+        jScrollPane4.setViewportView(tbl_salida1);
+        if (tbl_salida1.getColumnModel().getColumnCount() > 0) {
+            tbl_salida1.getColumnModel().getColumn(0).setMinWidth(240);
+            tbl_salida1.getColumnModel().getColumn(1).setMinWidth(894);
+            tbl_salida1.getColumnModel().getColumn(2).setMinWidth(100);
         }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -598,10 +597,7 @@ public class win_principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Sin Mensajes No Leidos    ");
         }
     }//GEN-LAST:event_btn_leerActionPerformed
-    
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -673,9 +669,9 @@ public class win_principal extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_entrada;
     private javax.swing.JPanel pnl_leidos;
     private javax.swing.JTabbedPane tab_mensajes;
-    private javax.swing.JTable tbl_eliminados;
     private javax.swing.JTable tbl_entrada;
     private javax.swing.JTable tbl_salida;
+    private javax.swing.JTable tbl_salida1;
     private javax.swing.JTextArea txa_Mensaje;
     private javax.swing.JTextField txt_destinatario;
     // End of variables declaration//GEN-END:variables
@@ -686,8 +682,6 @@ public class win_principal extends javax.swing.JFrame {
         NodoLEG<Usuario> nodoaux=aux.getPrimero();
         
         while(nodoaux !=null){
-            
-            modelo.setValueAt(aux, ERROR, 0);
             modelo.addRow(new Object [] {nodoaux.getDato().getLoginUsuario().getUserName(),
                                          nodoaux.getDato().getBuzon().frente().getMensaje(),
                                          nodoaux.getDato().getBuzon().frente().getFecha().toString()});
@@ -698,8 +692,4 @@ public class win_principal extends javax.swing.JFrame {
         
     }
 
- 
-        
-        
-    
 }
