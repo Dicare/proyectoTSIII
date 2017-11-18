@@ -60,6 +60,7 @@ public class UsuarioDAO implements IUsuarioDAO
                         .compareTo(usuarioDestino) == 0)
                 {
                     aux.getDato().agregarNuevoMensaje(Mensaje);
+                    aux.getDato().agregaraBorrados(Mensaje);
                     enviado = true;
                 }
                 aux = aux.getSiguiente();
@@ -71,7 +72,8 @@ public class UsuarioDAO implements IUsuarioDAO
         }
         return usuariosRechazados;
     }
-
+    
+   
     @Override
     public boolean existeUsuario(String usuario)
     {
@@ -116,7 +118,9 @@ public class UsuarioDAO implements IUsuarioDAO
                 {
                     usuarioEncontrado = true;
                     mensajeDevuelto = aux.getDato().leerPrimerMensaje();
+                    
                 }
+                aux.getDato().agregaraBorrados(mensajeDevuelto);
                 aux = aux.getSiguiente();
             }
         }

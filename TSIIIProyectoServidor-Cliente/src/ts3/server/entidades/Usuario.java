@@ -62,7 +62,7 @@ public class Usuario{
     
     public void agregaraBorrados(Mensaje mensaje){
         msjBorrado.encolar(mensaje);
-        mensajesRecibidos--;
+        
     }
     
     public Mensaje leerPrimerMensaje(){
@@ -72,6 +72,7 @@ public class Usuario{
         if(!buzon.colaVacia())
         {
             mensajeDesencolado =  buzon.desencolar();
+            msjBorrado.encolar(mensajeDesencolado);
             mensajesRecibidos--;       
         }
         return mensajeDesencolado;

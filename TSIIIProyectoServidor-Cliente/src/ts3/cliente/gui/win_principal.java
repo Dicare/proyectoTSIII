@@ -17,6 +17,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import ts3.server.daos.UsuarioDAO;
 import ts3.server.entidades.Mensaje;
+import ts3.server.entidades.Usuario;
 import ts3.util.Constantes;
 
 /**
@@ -85,13 +86,13 @@ public class win_principal extends javax.swing.JFrame
         jPanel2 = new javax.swing.JPanel();
         btn_salirbandeja1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tbl_salida = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        txtarea_salida = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         btn_salirbandeja2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tbl_eliminados = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtarea_eliminados = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Secure Mail");
@@ -202,17 +203,13 @@ public class win_principal extends javax.swing.JFrame
         tab_mensajes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tab_mensajes.setInheritsPopupMenu(true);
         tab_mensajes.setPreferredSize(new java.awt.Dimension(500, 350));
-        tab_mensajes.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        tab_mensajes.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 tab_mensajesStateChanged(evt);
             }
         });
-        tab_mensajes.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        tab_mensajes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tab_mensajesMouseClicked(evt);
             }
         });
@@ -270,7 +267,7 @@ public class win_principal extends javax.swing.JFrame
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(pnl_entradaLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1017, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1009, Short.MAX_VALUE)
                                 .addComponent(btn_enviar))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_entradaLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -324,24 +321,19 @@ public class win_principal extends javax.swing.JFrame
             new String [] {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
-        )
-        {
-            Class[] types = new Class []
-            {
+        ) {
+            Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean []
-            {
+            boolean[] canEdit = new boolean [] {
                 false, false, false
             };
 
-            public Class getColumnClass(int columnIndex)
-            {
+            public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
 
-            public boolean isCellEditable(int rowIndex, int columnIndex)
-            {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
@@ -364,12 +356,9 @@ public class win_principal extends javax.swing.JFrame
         btnVerColaMensaje.setContentAreaFilled(false);
         btnVerColaMensaje.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/mailOn.png"))); // NOI18N
         btnVerColaMensaje.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/mailOn.png"))); // NOI18N
-        btnVerColaMensaje.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnVerColaMensaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerColaMensajeActionPerformed(evt);
-
             }
         });
 
@@ -385,23 +374,20 @@ public class win_principal extends javax.swing.JFrame
                     .addGroup(pnl_leidosLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1205, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1197, Short.MAX_VALUE)
                             .addGroup(pnl_leidosLayout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblMensajesNoVistos, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnVerColaMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1207, Short.MAX_VALUE))))
-
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         pnl_leidosLayout.setVerticalGroup(
             pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_leidosLayout.createSequentialGroup()
                 .addContainerGap()
-
                 .addGroup(pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVerColaMensaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -431,40 +417,22 @@ public class win_principal extends javax.swing.JFrame
         jLabel6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel6.setText("Bandeja de Salida:");
 
-        tbl_salida.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Enviado por:", "Mensaje", "Recibido el:"
-            }
-        ));
-        tbl_salida.setToolTipText("");
-        tbl_salida.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tbl_salida.setAutoscrolls(false);
-        jScrollPane3.setViewportView(tbl_salida);
-        if (tbl_salida.getColumnModel().getColumnCount() > 0) {
-            tbl_salida.getColumnModel().getColumn(0).setMinWidth(240);
-            tbl_salida.getColumnModel().getColumn(1).setMinWidth(894);
-            tbl_salida.getColumnModel().getColumn(2).setMinWidth(100);
-        }
+        txtarea_salida.setColumns(20);
+        txtarea_salida.setRows(5);
+        jScrollPane6.setViewportView(txtarea_salida);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_salirbandeja1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1206, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_salirbandeja1))
+                    .addComponent(jLabel6)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 1203, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -472,9 +440,9 @@ public class win_principal extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(btn_salirbandeja1)
                 .addContainerGap())
         );
@@ -497,23 +465,9 @@ public class win_principal extends javax.swing.JFrame
         jLabel7.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel7.setText("Eliminados:");
 
-        tbl_eliminados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Enviado por:", "Mensaje", "Recibido el:"
-            }
-        ));
-        tbl_eliminados.setToolTipText("");
-        tbl_eliminados.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tbl_eliminados.setAutoscrolls(false);
-        jScrollPane4.setViewportView(tbl_eliminados);
-        if (tbl_eliminados.getColumnModel().getColumnCount() > 0) {
-            tbl_eliminados.getColumnModel().getColumn(0).setMinWidth(240);
-            tbl_eliminados.getColumnModel().getColumn(1).setMinWidth(894);
-            tbl_eliminados.getColumnModel().getColumn(2).setMinWidth(100);
-        }
+        txtarea_eliminados.setColumns(20);
+        txtarea_eliminados.setRows(5);
+        jScrollPane5.setViewportView(txtarea_eliminados);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -521,16 +475,15 @@ public class win_principal extends javax.swing.JFrame
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_salirbandeja2))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(0, 1080, Short.MAX_VALUE))
-                            .addComponent(jScrollPane4)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_salirbandeja2)))
+                            .addComponent(jLabel7)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -539,8 +492,8 @@ public class win_principal extends javax.swing.JFrame
                 .addContainerGap()
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_salirbandeja2)
                 .addContainerGap())
         );
@@ -553,7 +506,7 @@ public class win_principal extends javax.swing.JFrame
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tab_mensajes, javax.swing.GroupLayout.DEFAULT_SIZE, 1406, Short.MAX_VALUE)
+                .addComponent(tab_mensajes, javax.swing.GroupLayout.DEFAULT_SIZE, 1398, Short.MAX_VALUE)
                 .addGap(40, 40, 40))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -561,9 +514,9 @@ public class win_principal extends javax.swing.JFrame
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tab_mensajes, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(7, 7, 7))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -583,23 +536,29 @@ public class win_principal extends javax.swing.JFrame
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_salirleidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirleidosActionPerformed
-        win_login oWin_login = new win_login();
-        oWin_login.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btn_salirleidosActionPerformed
+    private void tab_mensajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_mensajesMouseClicked
+        //cargarDatos();
+    }//GEN-LAST:event_tab_mensajesMouseClicked
 
-    private void btn_salirbandejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirbandejaActionPerformed
-        win_login oWin_login = new win_login();
-        oWin_login.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btn_salirbandejaActionPerformed
+    private void tab_mensajesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tab_mensajesStateChanged
+        JTabbedPane sourceTabbedPane = (JTabbedPane) evt.getSource();
+        int index = sourceTabbedPane.getSelectedIndex();
 
-    private void btn_salirbandeja1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirbandeja1ActionPerformed
-        win_login oWin_login = new win_login();
-        oWin_login.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btn_salirbandeja1ActionPerformed
+        switch (index)
+        {
+            case Constantes.TAB_REDACTAR:
+            break;
+            case Constantes.TAB_ENTRADA:
+            tab_entrada_selected();
+            break;
+            case Constantes.TAB_SALIDA:
+            tab_Salida_selected();
+            break;
+            case Constantes.TAB_ELIMINADO:
+            
+            break;
+        }
+    }//GEN-LAST:event_tab_mensajesStateChanged
 
     private void btn_salirbandeja2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirbandeja2ActionPerformed
         win_login oWin_login = new win_login();
@@ -607,15 +566,45 @@ public class win_principal extends javax.swing.JFrame
         this.dispose();
     }//GEN-LAST:event_btn_salirbandeja2ActionPerformed
 
+    private void btn_salirbandeja1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirbandeja1ActionPerformed
+        win_login oWin_login = new win_login();
+        oWin_login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_salirbandeja1ActionPerformed
+
+    private void btnVerColaMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerColaMensajeActionPerformed
+
+        DateFormat dateFormat = new SimpleDateFormat(Constantes.FORMATO_FECHA);
+
+        Mensaje mensajeDesencolado = UsuarioDAO.getInstance().leerPrimerMensajeBuzon(Constantes.USUARIO_lOGEADO);
+
+        if (mensajeDesencolado != null)
+        {
+            modeloNoVisto.addRow(new Object[]
+                {
+                    mensajeDesencolado.getUsuarioOrigen(),
+                    mensajeDesencolado.getMensaje(),
+                    dateFormat.format(mensajeDesencolado.getFecha()),
+                });
+                tab_entrada_selected();
+            }
+    }//GEN-LAST:event_btnVerColaMensajeActionPerformed
+
+    private void btn_salirleidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirleidosActionPerformed
+        win_login oWin_login = new win_login();
+        oWin_login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_salirleidosActionPerformed
+
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
 
         ArrayList<String> usuariosRechazados;
         usuariosRechazados = UsuarioDAO.getInstance()
-                .enviarMensaje(new Mensaje(new Date(),
-                        txa_Mensaje.getText(),
-                        Constantes.USUARIO_lOGEADO.getUserName(),
-                        new ArrayList<>(Arrays.asList(txt_destinatario.getText().trim().split("\\s*;\\s*")))
-                ));
+        .enviarMensaje(new Mensaje(new Date(),
+            txa_Mensaje.getText(),
+            Constantes.USUARIO_lOGEADO.getUserName(),
+            new ArrayList<>(Arrays.asList(txt_destinatario.getText().trim().split("\\s*;\\s*")))
+        ));
 
         if (!usuariosRechazados.isEmpty())
         {
@@ -627,6 +616,12 @@ public class win_principal extends javax.swing.JFrame
             txt_destinatario.setText("");
         }
     }//GEN-LAST:event_btn_enviarActionPerformed
+
+    private void btn_salirbandejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirbandejaActionPerformed
+        win_login oWin_login = new win_login();
+        oWin_login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_salirbandejaActionPerformed
 
     private void notificarUsuariosRechazados(ArrayList<String> usuariosRechazados)
     {
@@ -643,49 +638,12 @@ public class win_principal extends javax.swing.JFrame
                 JOptionPane.ERROR_MESSAGE);
     }
 
-    private void tab_mensajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_mensajesMouseClicked
-        //cargarDatos();        
-    }//GEN-LAST:event_tab_mensajesMouseClicked
-
-    private void tab_mensajesStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_tab_mensajesStateChanged
-    {//GEN-HEADEREND:event_tab_mensajesStateChanged
-        JTabbedPane sourceTabbedPane = (JTabbedPane) evt.getSource();
-        int index = sourceTabbedPane.getSelectedIndex();
-
-        switch (index)
-        {
-            case Constantes.TAB_REDACTAR:
-                break;
-            case Constantes.TAB_ENTRADA:
-                tab_entrada_selected();
-                break;
-            case Constantes.TAB_SALIDA:
-                break;
-            case Constantes.TAB_ELIMINADO:
-                break;
-        }
-    }//GEN-LAST:event_tab_mensajesStateChanged
-
-    private void btnVerColaMensajeActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnVerColaMensajeActionPerformed
-    {//GEN-HEADEREND:event_btnVerColaMensajeActionPerformed
-
-        DateFormat dateFormat = new SimpleDateFormat(Constantes.FORMATO_FECHA);
-
-        Mensaje mensajeDesencolado = UsuarioDAO.getInstance().leerPrimerMensajeBuzon(Constantes.USUARIO_lOGEADO);
-
-        if (mensajeDesencolado != null)
-        {
-            modeloNoVisto.addRow(new Object[]
-            {
-                mensajeDesencolado.getUsuarioOrigen(),
-                mensajeDesencolado.getMensaje(),
-                dateFormat.format(mensajeDesencolado.getFecha()),
-            });
-            tab_entrada_selected();
-        }
-
-    }//GEN-LAST:event_btnVerColaMensajeActionPerformed
-
+    private void tab_Salida_selected(){
+        
+        txtarea_salida.setText(UsuarioDAO.getInstance().leerPrimerMensajeBuzon(Constantes.USUARIO_lOGEADO).toString());
+;
+    }
+    
     private void tab_entrada_selected()
     {
         lblMensajesNoVistos.setText(UsuarioDAO.getInstance().numeroMensajesRecibidos(Constantes.USUARIO_lOGEADO)
@@ -748,7 +706,6 @@ public class win_principal extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerColaMensaje;
     private javax.swing.JButton btn_enviar;
-    private javax.swing.JButton btn_leer;
     private javax.swing.JButton btn_salirbandeja;
     private javax.swing.JButton btn_salirbandeja1;
     private javax.swing.JButton btn_salirbandeja2;
@@ -776,17 +733,21 @@ public class win_principal extends javax.swing.JFrame
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel lblMensajesNoVistos;
     private javax.swing.JPanel pnl_entrada;
     private javax.swing.JPanel pnl_leidos;
     private javax.swing.JTabbedPane tab_mensajes;
-    private javax.swing.JTable tbl_eliminados;
     private javax.swing.JTable tbl_entrada;
-    private javax.swing.JTable tbl_salida;
     private javax.swing.JTextArea txa_Mensaje;
     private javax.swing.JTextField txt_destinatario;
+    private javax.swing.JTextArea txtarea_eliminados;
+    private javax.swing.JTextArea txtarea_salida;
     // End of variables declaration//GEN-END:variables
 
+    public void cargarEliminados(){
+        
+    }
+     
 }
