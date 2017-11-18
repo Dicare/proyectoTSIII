@@ -5,11 +5,17 @@
  */
 package ts3.cliente.gui;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import ts3.server.daos.UsuarioDAO;
 import ts3.server.entidades.Mensaje;
@@ -23,15 +29,27 @@ import ts3.util.Constantes;
  *
  * @author sjarc
  */
-public class win_principal extends javax.swing.JFrame {
+public class win_principal extends javax.swing.JFrame
+{
 
-    DefaultTableModel modelo;
-    ListaLEG<Usuario> aux;
-    public win_principal() {
+    DefaultTableModel modeloNoVisto;
+
+    public win_principal()
+    {
         initComponents();
         setLocationRelativeTo(this);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+<<<<<<< HEAD
+        
+        modeloNoVisto = new DefaultTableModel();
+        tbl_entrada.setModel(modeloNoVisto);
+        modeloNoVisto.addColumn("Enviado por");
+        modeloNoVisto.addColumn("Mensaje");
+        modeloNoVisto.addColumn("Fecha Recibido");
+        tbl_entrada.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+=======
         modelo= new DefaultTableModel();
+>>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
     }
 
     /**
@@ -71,7 +89,12 @@ public class win_principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbl_entrada = new javax.swing.JTable();
+<<<<<<< HEAD
+        lblMensajesNoVistos = new javax.swing.JLabel();
+        btnVerColaMensaje = new javax.swing.JButton();
+=======
         btn_leer = new javax.swing.JButton();
+>>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
         jPanel2 = new javax.swing.JPanel();
         btn_salirbandeja1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -187,12 +210,27 @@ public class win_principal extends javax.swing.JFrame {
         tab_mensajes.setBackground(new java.awt.Color(102, 102, 255));
         tab_mensajes.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         tab_mensajes.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        tab_mensajes.setToolTipText("");
         tab_mensajes.setAlignmentX(0.0F);
         tab_mensajes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tab_mensajes.setInheritsPopupMenu(true);
         tab_mensajes.setPreferredSize(new java.awt.Dimension(500, 350));
+<<<<<<< HEAD
+        tab_mensajes.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                tab_mensajesStateChanged(evt);
+            }
+        });
+        tab_mensajes.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+=======
         tab_mensajes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
+>>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
                 tab_mensajesMouseClicked(evt);
             }
         });
@@ -304,10 +342,31 @@ public class win_principal extends javax.swing.JFrame {
             new String [] {
                 "Enviado por:", "Mensaje", "Recibido el:"
             }
-        ));
+        )
+        {
+            Class[] types = new Class []
+            {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean []
+            {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex)
+            {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
+                return canEdit [columnIndex];
+            }
+        });
         tbl_entrada.setToolTipText("");
         tbl_entrada.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbl_entrada.setAutoscrolls(false);
+        tbl_entrada.setColumnSelectionAllowed(true);
         jScrollPane2.setViewportView(tbl_entrada);
         if (tbl_entrada.getColumnModel().getColumnCount() > 0) {
             tbl_entrada.getColumnModel().getColumn(0).setMinWidth(240);
@@ -315,6 +374,21 @@ public class win_principal extends javax.swing.JFrame {
             tbl_entrada.getColumnModel().getColumn(2).setMinWidth(100);
         }
 
+<<<<<<< HEAD
+        lblMensajesNoVistos.setForeground(new java.awt.Color(32, 101, 176));
+
+        btnVerColaMensaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/mail.png"))); // NOI18N
+        btnVerColaMensaje.setBorder(null);
+        btnVerColaMensaje.setBorderPainted(false);
+        btnVerColaMensaje.setContentAreaFilled(false);
+        btnVerColaMensaje.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/mailOn.png"))); // NOI18N
+        btnVerColaMensaje.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/mailOn.png"))); // NOI18N
+        btnVerColaMensaje.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnVerColaMensajeActionPerformed(evt);
+=======
         btn_leer.setBackground(new java.awt.Color(51, 102, 255));
         btn_leer.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btn_leer.setForeground(new java.awt.Color(255, 255, 255));
@@ -322,6 +396,7 @@ public class win_principal extends javax.swing.JFrame {
         btn_leer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_leerActionPerformed(evt);
+>>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
             }
         });
 
@@ -340,21 +415,40 @@ public class win_principal extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1205, Short.MAX_VALUE)
                             .addGroup(pnl_leidosLayout.createSequentialGroup()
                                 .addComponent(jLabel5)
+<<<<<<< HEAD
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblMensajesNoVistos, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnVerColaMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1207, Short.MAX_VALUE))))
+=======
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btn_leer)
                                 .addGap(34, 34, 34)))))
+>>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
                 .addContainerGap())
         );
         pnl_leidosLayout.setVerticalGroup(
             pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_leidosLayout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
+                .addGroup(pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVerColaMensaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMensajesNoVistos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+=======
                 .addGroup(pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(btn_leer))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
                 .addGap(23, 23, 23)
+>>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
                 .addComponent(btn_salirleidos)
                 .addContainerGap())
         );
@@ -554,24 +648,27 @@ public class win_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_salirbandeja2ActionPerformed
 
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
-               
+
         ArrayList<String> usuariosRechazados;
         usuariosRechazados = UsuarioDAO.getInstance()
-                                .enviarMensaje(new Mensaje(new Date(),
-                                        txa_Mensaje.getText(),
-                                        Constantes.USUARIO_lOGEADO.getUserName(),
-                                        new ArrayList<>(Arrays.asList(txt_destinatario.getText().trim().split("\\s*;\\s*")))
-                                ));
-        
+                .enviarMensaje(new Mensaje(new Date(),
+                        txa_Mensaje.getText(),
+                        Constantes.USUARIO_lOGEADO.getUserName(),
+                        new ArrayList<>(Arrays.asList(txt_destinatario.getText().trim().split("\\s*;\\s*")))
+                ));
+
         if (!usuariosRechazados.isEmpty())
         {
             notificarUsuariosRechazados(usuariosRechazados);
-        }else{
+        } else
+        {
             JOptionPane.showMessageDialog(this, "Mensaje Enviado");
+            txa_Mensaje.setText("");
+            txt_destinatario.setText("");
         }
     }//GEN-LAST:event_btn_enviarActionPerformed
 
-     private void notificarUsuariosRechazados(ArrayList<String> usuariosRechazados)
+    private void notificarUsuariosRechazados(ArrayList<String> usuariosRechazados)
     {
         StringBuilder builder = new StringBuilder("<html>");
         for (int i = 0; i < usuariosRechazados.size(); i++)
@@ -580,16 +677,71 @@ public class win_principal extends javax.swing.JFrame {
             builder.append("<br>");
         }
         builder.append("</html>");
-                
-        JOptionPane.showMessageDialog(null, builder.toString(), 
-                                        "Mensaje no enviado a los usuarios:",
-                                        JOptionPane.ERROR_MESSAGE);
+
+        JOptionPane.showMessageDialog(null, builder.toString(),
+                "Mensaje no enviado a los usuarios:",
+                JOptionPane.ERROR_MESSAGE);
     }
-     
+
     private void tab_mensajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_mensajesMouseClicked
-        cargarDatos();
+        //cargarDatos();        
     }//GEN-LAST:event_tab_mensajesMouseClicked
 
+<<<<<<< HEAD
+    private void tab_mensajesStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_tab_mensajesStateChanged
+    {//GEN-HEADEREND:event_tab_mensajesStateChanged
+        JTabbedPane sourceTabbedPane = (JTabbedPane) evt.getSource();
+        int index = sourceTabbedPane.getSelectedIndex();
+
+        switch (index)
+        {
+            case Constantes.TAB_REDACTAR:
+                break;
+            case Constantes.TAB_ENTRADA:
+                tab_entrada_selected();
+                break;
+            case Constantes.TAB_SALIDA:
+                break;
+            case Constantes.TAB_ELIMINADO:
+                break;
+        }
+    }//GEN-LAST:event_tab_mensajesStateChanged
+
+    private void btnVerColaMensajeActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnVerColaMensajeActionPerformed
+    {//GEN-HEADEREND:event_btnVerColaMensajeActionPerformed
+       
+
+        
+        
+        DateFormat dateFormat = new SimpleDateFormat(Constantes.FORMATO_FECHA);
+                
+        Mensaje mensajeDesencolado = UsuarioDAO.getInstance().leerPrimerMensajeBuzon(Constantes.USUARIO_lOGEADO);
+
+        if(mensajeDesencolado != null){
+            modeloNoVisto.addRow(new Object[]
+            {
+                mensajeDesencolado.getUsuarioOrigen(),
+                mensajeDesencolado.getMensaje(),
+                dateFormat.format(mensajeDesencolado.getFecha()),
+            });    
+            tab_entrada_selected();
+        }
+
+    }//GEN-LAST:event_btnVerColaMensajeActionPerformed
+
+    private void tab_entrada_selected()
+    {
+        lblMensajesNoVistos.setText(UsuarioDAO.getInstance().numeroMensajesRecibidos(Constantes.USUARIO_lOGEADO)
+                + " nuevos");
+
+    }
+
+    public void cargarDatos()
+    {
+
+    }
+
+=======
     private void btn_leerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_leerActionPerformed
         if(modelo.getRowCount()!=0){
         UsuarioDAO.getInstance().leerPrimerMensajeBuzon(Constantes.USUARIO_lOGEADO);
@@ -602,43 +754,56 @@ public class win_principal extends javax.swing.JFrame {
     
     
     
+>>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(win_principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(win_principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(win_principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(win_principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new win_principal().setVisible(true);
             }
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVerColaMensaje;
     private javax.swing.JButton btn_enviar;
     private javax.swing.JButton btn_leer;
     private javax.swing.JButton btn_salirbandeja;
@@ -670,6 +835,7 @@ public class win_principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lblMensajesNoVistos;
     private javax.swing.JPanel pnl_entrada;
     private javax.swing.JPanel pnl_leidos;
     private javax.swing.JTabbedPane tab_mensajes;
@@ -679,6 +845,8 @@ public class win_principal extends javax.swing.JFrame {
     private javax.swing.JTextArea txa_Mensaje;
     private javax.swing.JTextField txt_destinatario;
     // End of variables declaration//GEN-END:variables
+<<<<<<< HEAD
+=======
     
     public void cargarDatos(){
         aux= new ListaLEG<Usuario>();
@@ -697,6 +865,7 @@ public class win_principal extends javax.swing.JFrame {
         }        
         
     }
+>>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
 
  
         

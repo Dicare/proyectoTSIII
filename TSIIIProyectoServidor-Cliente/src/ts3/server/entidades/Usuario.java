@@ -66,7 +66,15 @@ public class Usuario{
     }
     
     public Mensaje leerPrimerMensaje(){
-        return buzon.desencolar();
+        
+        Mensaje mensajeDesencolado = null;
+        
+        if(!buzon.colaVacia())
+        {
+            mensajeDesencolado =  buzon.desencolar();
+            mensajesRecibidos--;       
+        }
+        return mensajeDesencolado;
     }
 
     

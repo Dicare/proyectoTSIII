@@ -11,4 +11,5 @@ public interface IUsuarioDAO {
     ArrayList<String> enviarMensaje(Mensaje Mensaje);
     boolean existeUsuario(String usuario);
     Mensaje leerPrimerMensajeBuzon(Credenciales credencialesUsuario);
+    int numeroMensajesRecibidos(Credenciales credencialesUsuario);
 }

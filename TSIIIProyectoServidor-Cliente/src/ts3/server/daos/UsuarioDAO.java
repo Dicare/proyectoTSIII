@@ -102,6 +102,52 @@ public class UsuarioDAO implements IUsuarioDAO
     @Override
     public Mensaje leerPrimerMensajeBuzon(Credenciales credencialesUsuario)
     {
+<<<<<<< HEAD
+        Mensaje mensajeDevuelto = null;
+        
+        if(loginUser(credencialesUsuario))
+        {            
+            NodoLEG<Usuario> aux = lUsuarios.getPrimero();
+            boolean usuarioEncontrado = false;
+            
+            while (usuarioEncontrado != true)
+            {
+                if (aux.getDato().getLoginUsuario().getUserName()
+                        .compareTo(credencialesUsuario.getUserName()) == 0)
+                {
+                    usuarioEncontrado = true;                    
+                    mensajeDevuelto = aux.getDato().leerPrimerMensaje();
+                }
+                aux = aux.getSiguiente();
+            }
+        }
+        return mensajeDevuelto;
+    }
+
+    @Override
+    public int numeroMensajesRecibidos(Credenciales credencialesUsuario)
+    {        
+        if(loginUser(credencialesUsuario))
+        {            
+            NodoLEG<Usuario> aux = lUsuarios.getPrimero();
+            boolean usuarioEncontrado = false;
+            int mensajes = 0;
+            while (usuarioEncontrado != true)
+            {
+                if (aux.getDato().getLoginUsuario().getUserName()
+                        .compareTo(credencialesUsuario.getUserName()) == 0)
+                {
+                    usuarioEncontrado = true;
+                    mensajes = aux.getDato().getMensajesRecibidos();                                        
+                }
+                aux = aux.getSiguiente();
+            }
+            return mensajes;
+        }else
+        {
+            return -1; //ErrorCode
+        }
+=======
         Mensaje msjBorrado=null;
         Usuario user=null;
         if(lUsuarios.getPrimero().getDato().getMensajesRecibidos()!=0){
@@ -114,6 +160,7 @@ public class UsuarioDAO implements IUsuarioDAO
         }
         return msjBorrado;
         
+>>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
     }
     
       

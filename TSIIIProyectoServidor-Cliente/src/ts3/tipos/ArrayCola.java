@@ -44,7 +44,7 @@ public class ArrayCola <T> implements ICola<T>{
     }
     
     @Override
-    public T desencolar(){
+    public T desencolar(){       
         T elemento=arC[frenteC];
         
         if(frenteC==finalC){
