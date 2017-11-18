@@ -14,15 +14,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import ts3.server.daos.UsuarioDAO;
 import ts3.server.entidades.Mensaje;
-import ts3.server.entidades.Usuario;
-import ts3.tipos.ArrayCola;
-import ts3.tipos.ListaLEG;
-import ts3.tipos.NodoLEG;
 import ts3.util.Constantes;
 
 /**
@@ -674,21 +668,19 @@ public class win_principal extends javax.swing.JFrame
 
     private void btnVerColaMensajeActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnVerColaMensajeActionPerformed
     {//GEN-HEADEREND:event_btnVerColaMensajeActionPerformed
-       
 
-        
-        
         DateFormat dateFormat = new SimpleDateFormat(Constantes.FORMATO_FECHA);
-                
+
         Mensaje mensajeDesencolado = UsuarioDAO.getInstance().leerPrimerMensajeBuzon(Constantes.USUARIO_lOGEADO);
 
-        if(mensajeDesencolado != null){
+        if (mensajeDesencolado != null)
+        {
             modeloNoVisto.addRow(new Object[]
             {
                 mensajeDesencolado.getUsuarioOrigen(),
                 mensajeDesencolado.getMensaje(),
                 dateFormat.format(mensajeDesencolado.getFecha()),
-            });    
+            });
             tab_entrada_selected();
         }
 
@@ -796,11 +788,5 @@ public class win_principal extends javax.swing.JFrame
     private javax.swing.JTextArea txa_Mensaje;
     private javax.swing.JTextField txt_destinatario;
     // End of variables declaration//GEN-END:variables
-    
 
-
- 
-        
-        
-    
 }
