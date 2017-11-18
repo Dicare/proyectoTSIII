@@ -11,11 +11,22 @@ public class Usuario{
     private Credenciales loginUsuario;
     private int mensajesRecibidos;
     private ArrayCola<Mensaje> buzon;
+    private ArrayCola<Mensaje> msjBorrado;
+    
     
     public Usuario(Credenciales loginCredenciales) {
         this.loginUsuario = loginCredenciales;
         mensajesRecibidos = 0;
         buzon = new ArrayCola<>(Constantes.TAMAÑOCOLA);
+        msjBorrado= new ArrayCola<>(Constantes.TAMAÑOCOLA);
+    }
+
+    public ArrayCola<Mensaje> getMsjBorrado() {
+        return msjBorrado;
+    }
+
+    public void setMsjBorrado(ArrayCola<Mensaje> msjBorrado) {
+        this.msjBorrado = msjBorrado;
     }
     
     // <editor-fold defaultstate="collapsed" desc="Getters & Setters">
@@ -47,6 +58,11 @@ public class Usuario{
     public void agregarNuevoMensaje(Mensaje mensaje){
         buzon.encolar(mensaje);
         mensajesRecibidos++;
+    }
+    
+    public void agregaraBorrados(Mensaje mensaje){
+        msjBorrado.encolar(mensaje);
+        mensajesRecibidos--;
     }
     
     public Mensaje leerPrimerMensaje(){
