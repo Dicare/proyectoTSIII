@@ -15,9 +15,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.xml.bind.DatatypeConverter;
 import ts3.server.daos.UsuarioDAO;
 import ts3.server.entidades.Mensaje;
 import ts3.server.entidades.Usuario;
+import ts3.tipos.NodoLEG;
 import ts3.util.Constantes;
 
 /**
@@ -577,6 +579,8 @@ public class win_principal extends javax.swing.JFrame
         DateFormat dateFormat = new SimpleDateFormat(Constantes.FORMATO_FECHA);
 
         Mensaje mensajeDesencolado = UsuarioDAO.getInstance().leerPrimerMensajeBuzon(Constantes.USUARIO_lOGEADO);
+        
+       String Mensaje = String.valueOf(mensajeDesencolado);
 
         if (mensajeDesencolado != null)
         {
@@ -587,7 +591,9 @@ public class win_principal extends javax.swing.JFrame
                     dateFormat.format(mensajeDesencolado.getFecha()),
                 });
                 tab_entrada_selected();
+                
             }
+        txtarea_eliminados.setText(Mensaje);
     }//GEN-LAST:event_btnVerColaMensajeActionPerformed
 
     private void btn_salirleidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirleidosActionPerformed
@@ -640,12 +646,14 @@ public class win_principal extends javax.swing.JFrame
 
     private void tab_Salida_selected(){
         
-        txtarea_salida.setText(UsuarioDAO.getInstance().leerPrimerMensajeBuzon(Constantes.USUARIO_lOGEADO).toString());
+        
 ;
     }
     
     private void tab_entrada_selected()
-    {
+            
+    {   
+   
         lblMensajesNoVistos.setText(UsuarioDAO.getInstance().numeroMensajesRecibidos(Constantes.USUARIO_lOGEADO)
                 + " nuevos");
 
