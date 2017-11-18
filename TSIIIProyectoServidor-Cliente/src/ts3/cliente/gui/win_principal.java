@@ -39,17 +39,14 @@ public class win_principal extends javax.swing.JFrame
         initComponents();
         setLocationRelativeTo(this);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-<<<<<<< HEAD
-        
+
         modeloNoVisto = new DefaultTableModel();
         tbl_entrada.setModel(modeloNoVisto);
         modeloNoVisto.addColumn("Enviado por");
         modeloNoVisto.addColumn("Mensaje");
         modeloNoVisto.addColumn("Fecha Recibido");
         tbl_entrada.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-=======
-        modelo= new DefaultTableModel();
->>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
+
     }
 
     /**
@@ -89,12 +86,8 @@ public class win_principal extends javax.swing.JFrame
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbl_entrada = new javax.swing.JTable();
-<<<<<<< HEAD
         lblMensajesNoVistos = new javax.swing.JLabel();
         btnVerColaMensaje = new javax.swing.JButton();
-=======
-        btn_leer = new javax.swing.JButton();
->>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
         jPanel2 = new javax.swing.JPanel();
         btn_salirbandeja1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -215,7 +208,6 @@ public class win_principal extends javax.swing.JFrame
         tab_mensajes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tab_mensajes.setInheritsPopupMenu(true);
         tab_mensajes.setPreferredSize(new java.awt.Dimension(500, 350));
-<<<<<<< HEAD
         tab_mensajes.addChangeListener(new javax.swing.event.ChangeListener()
         {
             public void stateChanged(javax.swing.event.ChangeEvent evt)
@@ -227,10 +219,6 @@ public class win_principal extends javax.swing.JFrame
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {
-=======
-        tab_mensajes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
->>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
                 tab_mensajesMouseClicked(evt);
             }
         });
@@ -374,7 +362,6 @@ public class win_principal extends javax.swing.JFrame
             tbl_entrada.getColumnModel().getColumn(2).setMinWidth(100);
         }
 
-<<<<<<< HEAD
         lblMensajesNoVistos.setForeground(new java.awt.Color(32, 101, 176));
 
         btnVerColaMensaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ts3/img/mail.png"))); // NOI18N
@@ -388,15 +375,7 @@ public class win_principal extends javax.swing.JFrame
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
                 btnVerColaMensajeActionPerformed(evt);
-=======
-        btn_leer.setBackground(new java.awt.Color(51, 102, 255));
-        btn_leer.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btn_leer.setForeground(new java.awt.Color(255, 255, 255));
-        btn_leer.setText("Leer Mensajes");
-        btn_leer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_leerActionPerformed(evt);
->>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
+
             }
         });
 
@@ -415,25 +394,20 @@ public class win_principal extends javax.swing.JFrame
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1205, Short.MAX_VALUE)
                             .addGroup(pnl_leidosLayout.createSequentialGroup()
                                 .addComponent(jLabel5)
-<<<<<<< HEAD
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblMensajesNoVistos, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnVerColaMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1207, Short.MAX_VALUE))))
-=======
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_leer)
-                                .addGap(34, 34, 34)))))
->>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
+
                 .addContainerGap())
         );
         pnl_leidosLayout.setVerticalGroup(
             pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_leidosLayout.createSequentialGroup()
                 .addContainerGap()
-<<<<<<< HEAD
+
                 .addGroup(pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVerColaMensaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -441,14 +415,6 @@ public class win_principal extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-=======
-                .addGroup(pnl_leidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(btn_leer))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
-                .addGap(23, 23, 23)
->>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
                 .addComponent(btn_salirleidos)
                 .addContainerGap())
         );
@@ -687,7 +653,6 @@ public class win_principal extends javax.swing.JFrame
         //cargarDatos();        
     }//GEN-LAST:event_tab_mensajesMouseClicked
 
-<<<<<<< HEAD
     private void tab_mensajesStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_tab_mensajesStateChanged
     {//GEN-HEADEREND:event_tab_mensajesStateChanged
         JTabbedPane sourceTabbedPane = (JTabbedPane) evt.getSource();
@@ -741,20 +706,6 @@ public class win_principal extends javax.swing.JFrame
 
     }
 
-=======
-    private void btn_leerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_leerActionPerformed
-        if(modelo.getRowCount()!=0){
-        UsuarioDAO.getInstance().leerPrimerMensajeBuzon(Constantes.USUARIO_lOGEADO);
-        
-        }else{
-            JOptionPane.showMessageDialog(this, "Sin Mensajes No Leidos    ");
-        }
-    }//GEN-LAST:event_btn_leerActionPerformed
-    
-    
-    
-    
->>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
     /**
      * @param args the command line arguments
      */
@@ -845,27 +796,8 @@ public class win_principal extends javax.swing.JFrame
     private javax.swing.JTextArea txa_Mensaje;
     private javax.swing.JTextField txt_destinatario;
     // End of variables declaration//GEN-END:variables
-<<<<<<< HEAD
-=======
     
-    public void cargarDatos(){
-        aux= new ListaLEG<Usuario>();
-        
-        NodoLEG<Usuario> nodoaux=aux.getPrimero();
-        
-        while(nodoaux !=null){
-            
-            modelo.setValueAt(aux, ERROR, 0);
-            modelo.addRow(new Object [] {nodoaux.getDato().getLoginUsuario().getUserName(),
-                                         nodoaux.getDato().getBuzon().frente().getMensaje(),
-                                         nodoaux.getDato().getBuzon().frente().getFecha().toString()});
-            
-            nodoaux=nodoaux.getSiguiente();
-            
-        }        
-        
-    }
->>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
+
 
  
         

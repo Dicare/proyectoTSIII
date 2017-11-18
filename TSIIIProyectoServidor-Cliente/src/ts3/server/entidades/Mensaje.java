@@ -62,19 +62,11 @@ public class Mensaje {
     
     @Override
     public String toString(){
-<<<<<<< HEAD
-        
         DateFormat dateFormat = new SimpleDateFormat(Constantes.FORMATO_FECHA);        
         return "Fecha de Mensaje : " + dateFormat.format(fecha) +"\n"
                  + "De : " +usuarioOrigen+ "\n"
                  + "A :" + String.join("; ", lUsuariosDestino )+ "\n"
                  + "Mensaje : " + mensaje;
-=======
-        return "Fecha de Mensaje : " + fecha +"\n"
-                + "De : " +usuarioOrigen+ "\n"
-                + "A :" + lUsuariosDestino+ "\n"
-                + "Mensaje : " + mensaje;
->>>>>>> 71c8a16e0300bcf8b571bf1a1a6bda86d353196d
     }
     
 }
